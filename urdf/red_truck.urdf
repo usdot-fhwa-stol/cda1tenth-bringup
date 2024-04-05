@@ -2,7 +2,7 @@
   <link name="base_link" />
   <link name="footprint" />
   <link name="imu" />
-  <link name="lidar" />
+  <link name="laser" />
 
 
   <joint name="imu_joint" type="fixed">
@@ -11,10 +11,10 @@
     <origin xyz="0.226 0.047 0.071" rpy="0 0 0" />
   </joint>
 
-  <joint name="lidar_joint" type="fixed">
+  <joint name="laser_joint" type="fixed">
     <parent link="base_link"/>
-    <child link="lidar"/>
-    <origin xyz="0.409 0.0 0.185" rpy="0 0 3.141592" />
+    <child link="laser"/>
+    <origin xyz="0.41 -0.01 0.185" rpy="0 0 3.141592" />
   </joint>
 
   <joint name="footprint_joint" type="fixed">
