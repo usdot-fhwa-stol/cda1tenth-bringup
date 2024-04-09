@@ -1,0 +1,26 @@
+<robot name="red_truck">
+  <link name="base_link" />
+  <link name="footprint" />
+  <link name="imu" />
+  <link name="laser" />
+
+
+  <joint name="imu_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="imu"/>
+    <origin xyz="0.226 0.047 0.071" rpy="0 0 0" />
+  </joint>
+
+  <joint name="laser_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="laser"/>
+    <origin xyz="0.41 -0.01 0.185" rpy="0 0 3.141593" />
+  </joint>
+
+  <joint name="footprint_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="footprint"/>
+    <origin xyz="0 0 -0.043" />
+  </joint>
+
+</robot>
