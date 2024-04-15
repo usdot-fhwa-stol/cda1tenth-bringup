@@ -1,0 +1,22 @@
+<launch>
+  <node 
+    pkg="tf2_ros" 
+    exec="static_transform_publisher" 
+    name="base_link_to_laser"
+    args="--x 0.447675 --z 0.143 --yaw 3.0805061 --frame-id base_link --child-frame-id laser"
+  />
+
+  <node 
+    pkg="tf2_ros" 
+    exec="static_transform_publisher" 
+    name="base_link_to_footprint"
+    args="--z -0.043 --frame-id base_link --child-frame-id base_footprint"
+  />
+
+  <node 
+    pkg="tf2_ros" 
+    exec="static_transform_publisher" 
+    name="base_link_to_coat_hanger"
+    args="--x 0.9869 --frame-id base_link --child-frame-id coat_hanger"
+  />
+</launch>

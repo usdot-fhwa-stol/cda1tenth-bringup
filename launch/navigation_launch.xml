@@ -1,0 +1,31 @@
+<launch>
+  <node pkg="nav2_bt_navigator" exec="bt_navigator">
+    <param from="$(find-pkg-share c1t_bringup)/params/params.yaml"/>
+  </node>
+
+  <node pkg="nav2_planner" exec="planner_server">
+    <param from="$(find-pkg-share c1t_bringup)/params/params.yaml"/>
+  </node>
+
+  <node pkg="nav2_controller" exec="controller_server">
+     <param from="$(find-pkg-share c1t_bringup)/params/params.yaml"/>
+  </node>
+
+  <node pkg="nav2_behaviors" exec="behavior_server"/>
+
+  <node pkg="nav2_smoother" exec="smoother_server"/>
+
+  <node pkg="nav2_waypoint_follower" exec="waypoint_follower"/>
+
+  <node pkg="nav2_route" exec="route_server">
+    <param from="$(find-pkg-share c1t_bringup)/params/params.yaml"/>
+  </node>
+
+  <node pkg="nav2_lifecycle_manager" exec="lifecycle_manager" name="lifecycle_manager_navigation">
+    <param name="autostart" value="true"/>
+    <param
+      name="node_names"
+      value="bt_navigator, planner_server, controller_server, behavior_server, smoother_server, waypoint_follower, route_server"
+      value-sep=", "/>
+  </node>
+</launch>

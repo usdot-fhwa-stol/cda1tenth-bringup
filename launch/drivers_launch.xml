@@ -1,0 +1,26 @@
+<launch>
+  <include file="$(find-pkg-share vesc_ackermann)/launch/ackermann_to_vesc_node.launch.xml"/>
+  <include file="$(find-pkg-share vesc_ackermann)/launch/vesc_to_odom_node.launch.xml"/>
+  <include file="$(find-pkg-share vesc_driver)/launch/vesc_driver_node.launch.py"/>
+
+  <node pkg="twist_to_ackermann" exec="twist_to_ackermann_node" name="twist_to_ackermann_node">
+    <remap from="/ackermann" to="/ackermann_cmd"/>
+  </node>
+
+  <node pkg="sllidar_ros2" exec="sllidar_node" name="sllidar_node">
+    <remap from="/scan" to="/scan_raw"/>
+
+    <param name="channel_type" value="serial"/>
+    <param name="serial_port" value="/dev/rplidar"/>
+    <param name="serial_baudrate" value="256000"/>
+    <param name="frame_id" value="laser"/>
+    <param name="inverted" value="false"/>
+    <param name="angle_compensate" value="true"/>
+  </node>
+
+  <node pkg="laser_filters" exec="scan_to_scan_filter_chain" name="scan_to_scan_filter_chain">
+    <param from="$(find-pkg-share c1t_bringup)/params/params.yaml"/>
+    <remap from="/scan" to="/scan_raw"/>
+    <remap from="/scan_filtered" to="/scan"/>
+  </node>
+</launch>
