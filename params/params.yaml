@@ -64,7 +64,8 @@ global_costmap:
       publish_frequency: 1.0
       global_frame: map
       robot_base_frame: base_link
-      robot_radius: 0.22 # TODO(CF-823): Replace with truck's measured footprint radius
+      # robot_radius: 0.10
+      footprint: "[ [-0.135, 0.10], [-0.135, -0.10], [0.525, -0.10], [0.525, 0.10] ]"
       resolution: 0.04
       track_unknown_space: true
       always_send_full_costmap: True
