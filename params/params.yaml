@@ -24,7 +24,8 @@ local_costmap:
       width: 2
       height: 2
       resolution: 0.04
-      robot_radius: 0.22 # TODO(CF-823): Replace with truck's measured footprint radius
+      # robot_radius: 0.10
+      footprint: "[ [-0.135, 0.10], [-0.135, -0.10], [0.525, -0.10], [0.525, 0.10] ]"
       always_send_full_costmap: True
       origin_x: -1.0
       origin_y: -1.0
