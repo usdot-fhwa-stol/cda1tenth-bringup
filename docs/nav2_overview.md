@@ -75,27 +75,28 @@ From this specification, the `NavigateToPose` navigator will behave as follows:
    new reference path whenever the robot is greater than 1 meter from the goal pose.
 4. Make an action call to the Controller Server to track the reference path.
 
-The navigator will repeat the pipeline until the robot reaches its gaol pose.
+The navigator will repeat the pipeline until the robot reaches its goal pose.
 
 > [!NOTE]
 > The Planning and Control Servers' plugins do the actual planning and tracking, respectively. The navigator, which
 > lives within the BT Navigator Server, only decides when to send the corresponding ROS 2 action requests.
 
-## Planning Server
+## Planner Server
 
 This server contains a collection of path planner plugins that generate a path from the robot's current pose to some
 goal pose. The plugins expose a ROS 2 action interface for generating a path through free-space. Users can choose
-one of the planners that comes with Nav2, or they can bring their own.
+one of the planners that comes with Nav2, or they can implement their own.
 
 The server maintains an understanding of the robot's environment through a global costmap.
 
 ## Controller Server
 
 This server contains a collection of controller plugins that command the robot to follow the provided reference path.
-Each plugin exposes a ROS 2 action. Similar to the Planning Server, users can choose from several provided controller
-plugins, or they can implement their own.
+Each plugin exposes a ROS 2 action. Similar to the Planner Server, users can choose from several provided controller
+plugins, or they can implement their own. They are responsible for publishing `geometry_msgs::msg::Twist` messages onto
+the `/cmd_vel` topic.
 
-They are responsible for publishing `geometry_msgs::msg::Twist` messages onto the `/cmd_vel` topic.
+The server maintains an understanding of the robot's environment through a local costmap.
 
 ### Dealing with different robot types
 
@@ -115,7 +116,7 @@ possibilities.
 
 ## Behavior Server
 
-This server contains a collection of various behaviors. Navigators typically use they behaviors as recovery moves when
+This server contains a collection of various behaviors. Navigators typically use the behaviors as recovery moves when
 path planning and tracking fails. Nav2 provides some behaviors, including waiting, backing up, or calling for help.
 Unlike the Planning and Controller Servers, the Behavior Server's plugins do not have a unified interface.
 
@@ -124,7 +125,7 @@ Unlike the Planning and Controller Servers, the Behavior Server's plugins do not
 This is an experimental server that plans routes using well-structured graphs, such as road graphs, instead of
 free-space. Users provide a graph file that gets overlaid on top of the static map file.
 
-In an ideal environment, the navigator could completely bypass the Planner Server, calling the Router Server to
+In an ideal environment, the navigator could completely bypass the Planner Server, calling the Route Server to
 generate a route through the graph and an associated dense path then feeding that to the Controller Server plugin to
 track. However, there are some scenarios that would require Nav2's free-space planning capabilities:
 
@@ -135,12 +136,12 @@ track. However, there are some scenarios that would require Nav2's free-space pl
 The navigator's general data/processing flow when using the Route Server is:
 
 1. Make an action call to the Route Server to generate a route and associated dense path through the loaded graph.
-2. (Optional) If the route's start is too far away from the robot's current pose, make an action call to the Planner  
+2. (Optional) If the route's start is too far away from the robot's current pose, make an action call to the Planner
    Server to generate a path in free-space between the robot's current pose and the route's start.
 3. (Only if 2.) Make an action call to the Controller Server to track the reference path generated in 2.
 4. Make an action call to the Controller Server to track the reference path generated in 1.
 
-> [NOTE!]
+> [!NOTE]
 > The `nav2_route` package has not been merged into the main Nav2 code base. It's integration with the rest of Nav2 is
 > limited to a few demonstration scripts that use the `nav2_simple_commander` package. This package provides a Python
 > API for creating navigators outside the BT Navigator Server.
