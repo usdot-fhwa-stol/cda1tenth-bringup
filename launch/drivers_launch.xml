@@ -1,7 +1,15 @@
 <launch>
-  <include file="$(find-pkg-share vesc_ackermann)/launch/ackermann_to_vesc_node.launch.xml"/>
-  <include file="$(find-pkg-share vesc_ackermann)/launch/vesc_to_odom_node.launch.xml"/>
-  <include file="$(find-pkg-share vesc_driver)/launch/vesc_driver_node.launch.py"/>
+  <node pkg="vesc_ackermann" exec="vesc_to_odom_node" name="vesc_to_odom_node">
+    <param from="$(find-pkg-share c1t_bringup)/params/params.yaml"/>
+  </node>
+
+  <node pkg="vesc_ackermann" exec="ackermann_to_vesc_node" name="ackermann_to_vesc_node">
+    <param from="$(find-pkg-share c1t_bringup)/params/params.yaml"/>
+  </node>
+
+  <node pkg="vesc_driver" exec="vesc_driver_node" name="vesc_driver_node">
+    <param from="$(find-pkg-share c1t_bringup)/params/params.yaml"/>
+  </node>
 
   <node pkg="twist_to_ackermann" exec="twist_to_ackermann_node" name="twist_to_ackermann_node">
     <remap from="/ackermann" to="/ackermann_cmd"/>
