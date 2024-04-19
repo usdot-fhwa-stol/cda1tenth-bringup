@@ -171,3 +171,38 @@ scan_to_scan_filter_chain:
       type: laser_filters/LaserScanFootprintFilter
       params:
         inscribed_radius: 1.0
+
+vesc_to_odom_node:
+  ros__parameters:
+    odom_frame: odom
+    base_frame: base_link
+    speed_to_erpm_gain: 7317.8
+    speed_to_erpm_offset: 0.0
+    use_servo_cmd_to_calc_angular_velocity: True
+    steering_angle_to_servo_gain: 0.9135
+    steering_angle_to_servo_offset: 0.425
+    wheelbase: 0.3175
+    publish_tf: True
+
+ackermann_to_vesc_node:
+  ros__parameters:
+    speed_to_erpm_gain: 7317.8
+    speed_to_erpm_offset: 0.0
+    steering_angle_to_servo_gain: -0.9135
+    steering_angle_to_servo_offset: 0.425
+
+vesc_driver_node:
+  ros__parameters:
+    port: "/dev/ttyACM0"
+    brake_max: 200000.0
+    brake_min: -20000.0
+    current_max: 100.0
+    current_min: 0.0
+    duty_cycle_max: 0.0
+    duty_cycle_min: 0.0
+    position_max: 0.0
+    position_min: 0.0
+    servo_max: 0.85
+    servo_min: 0.15
+    speed_max: 23250.0
+    speed_min: -23250.0
