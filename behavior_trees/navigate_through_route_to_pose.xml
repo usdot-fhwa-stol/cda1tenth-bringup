@@ -1,0 +1,8 @@
+<root main_tree_to_execute="MainTree">
+  <BehaviorTree ID="MainTree">
+    <PipelineSequence name="NavigateThroughRouteToPose">
+      <ComputeRoute goal="{goal}" path="{path}" error_code_id="{compute_route_error_code}"/>
+      <FollowPath path="{path}" controller_id="FollowPath" error_code_id="{follow_path_error_code}"/>
+    </PipelineSequence>
+  </BehaviorTree>
+</root>
