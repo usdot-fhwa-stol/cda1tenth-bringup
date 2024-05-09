@@ -29,7 +29,7 @@ This will launch all necessary subsystems, such as drivers, localization, and na
 
 After launching the ROS nodes, you will to follow a specific sequence of actions before you can give the vehicle waypoint.
 
-1. Send an empty message to the `/ackermann_cmd` topic. You can use Foxglove Studio's Publish panel for this.
+1. Send an empty message to the `/ackermann_cmd` topic. You can use Foxglove Studio's Publish panel for this or send it directly to the vehicle by publishing via command line with `pub /ackermann_cmd ackermann_msgs/msg/AckermannDriveStamped`.
 
    > [!NOTE]
    > The `vesc_to_odom_node` ROS node is responsible for publishing the odometry information it receives from the VESC motor controller. However, it does not start publishing this information until the VESC driver stack receives a command.
