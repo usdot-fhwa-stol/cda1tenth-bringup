@@ -13,8 +13,8 @@ amcl:
     global_frame_id: "map"
     lambda_short: 0.1 # exponential decay rate of z_short
     laser_likelihood_max_dist: 2.0
-    laser_max_range: 10.0  # negative to match internal limits
-    laser_min_range: 0.1   # negative to match internal limits
+    laser_max_range: 10.0  # set to -1.0 to match internal limits
+    laser_min_range: 0.1   # set to -1.0 to match internal limits
     laser_model_type: "likelihood_field"
     max_beams: 60
     max_particles: 3000
