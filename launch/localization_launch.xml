@@ -1,16 +1,6 @@
 <launch>
   <node pkg="nav2_map_server" exec="map_server" name="map_server">
-    <param name="yaml_filename" value="$(find-pkg-share c1t_bringup)/maps/chub.yaml"/>
-  </node>
-
-  <node pkg="nav2_map_server" exec="map_server" name="filter_mask_server">
-    <param name="yaml_filename" value="$(find-pkg-share c1t_bringup)/maps/chub-keepout.yaml"/>
-    <param from="$(find-pkg-share c1t_bringup)/params/params.yaml"/>
-  </node>
-
-  <node pkg="nav2_map_server" exec="costmap_filter_info_server" name="costmap_filter_info_server">
-    <param name="yaml_filename" value="$(find-pkg-share c1t_bringup)/maps/chub-keepout.yaml"/>
-    <param from="$(find-pkg-share c1t_bringup)/params/params.yaml"/>
+    <param name="yaml_filename" value="$(find-pkg-share c1t_bringup)/maps/f125-clean.yaml"/>
   </node>
 
   <node pkg="nav2_amcl" exec="amcl" name="amcl">
@@ -19,6 +9,6 @@
 
   <node pkg="nav2_lifecycle_manager" exec="lifecycle_manager" name="lifecycle_manager_localization">
     <param name="autostart" value="true"/>
-    <param name="node_names" value="map_server, amcl, filter_mask_server, costmap_filter_info_server" value-sep=", "/>
+    <param name="node_names" value="map_server, amcl" value-sep=", "/>
   </node>
 </launch>
