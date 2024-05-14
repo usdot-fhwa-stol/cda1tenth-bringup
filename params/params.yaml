@@ -1,7 +1,42 @@
 amcl:
   ros__parameters:
-    laser_max_range: -1.0 # Use value reported in laser scan
-    laser_min_range: -1.0 # Use value reported in laser scan
+    alpha1: 0.8  # Expected noise in odometry rotation estimate from rotation
+    alpha2: 0.4  # Expected noise in odometry rotation estimate from translation
+    alpha3: 0.2  # Expected noise in odometry translation estimate from translation
+    alpha4: 0.3  # Expected noise in odometry translation estimate from rotation
+    alpha5: 0.2
+    base_frame_id: "base_footprint"
+    beam_skip_distance: 0.5
+    beam_skip_error_threshold: 0.9
+    beam_skip_threshold: 0.3
+    do_beamskip: false # related to laser_model_type for prob. est
+    global_frame_id: "map"
+    lambda_short: 0.1 # exponential decay rate of z_short
+    laser_likelihood_max_dist: 2.0
+    laser_max_range: 10.0  # set to -1.0 to match internal limits
+    laser_min_range: 0.1   # set to -1.0 to match internal limits
+    laser_model_type: "likelihood_field"
+    max_beams: 60
+    max_particles: 3000
+    min_particles: 500
+    odom_frame_id: "odom"
+    pf_err: 0.05
+    pf_z: 0.99
+    recovery_alpha_fast: 0.0
+    recovery_alpha_slow: 0.0
+    resample_interval: 1
+    robot_model_type: "nav2_amcl::DifferentialMotionModel"
+    save_pose_rate: 0.5
+    sigma_hit: 0.2 # affects gaussian fitment of z_hit
+    tf_broadcast: true
+    transform_tolerance: 0.3
+    update_min_a: -1.0   # Minimum angle delta in radians for AMCL to recalculate, (-) matches scan freq
+    update_min_d: -1.0  # Minimim distance delta in m for AMCL to recalculate, (-) matches scan freq
+    z_hit: 0.7     # Likelyhood that a lidar beam hits a known obstacle from the map
+    z_max: 0.05    # Likelyhood that a lidar beam goes beyond maximum range
+    z_rand: 0.2    # Likelyhood that a lidar beam hits an obstacle not known in the map
+    z_short: 0.05  # Likelyhood that a lidar beam falls short without hitting an obstacle
+    scan_topic: scan
 
 bt_navigator:
   ros__parameters:
@@ -25,13 +60,11 @@ local_costmap:
       width: 2
       height: 2
       resolution: 0.04
-      # robot_radius: 0.10
       footprint: "[ [-0.135, 0.10], [-0.135, -0.10], [0.525, -0.10], [0.525, 0.10] ]"
       always_send_full_costmap: True
       origin_x: -1.0
       origin_y: -1.0
       plugins: ["obstacle_layer", "inflation_layer"]
-      filters: ["keepout_filter"]
 
       obstacle_layer:
         plugin: "nav2_costmap_2d::ObstacleLayer"
@@ -50,13 +83,8 @@ local_costmap:
 
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
-        cost_scaling_factor: 3.0
-        inflation_radius: 0.70
-
-      keepout_filter:
-        plugin: "nav2_costmap_2d::KeepoutFilter"
-        enabled: True
-        filter_info_topic: "/costmap_filter_info"
+        cost_scaling_factor: 1.0
+        inflation_radius: 0.9
 
 global_costmap:
   global_costmap:
@@ -65,13 +93,11 @@ global_costmap:
       publish_frequency: 1.0
       global_frame: map
       robot_base_frame: base_link
-      # robot_radius: 0.10
       footprint: "[ [-0.135, 0.10], [-0.135, -0.10], [0.525, -0.10], [0.525, 0.10] ]"
       resolution: 0.04
       track_unknown_space: true
       always_send_full_costmap: True
       plugins: ["static_layer", "obstacle_layer", "inflation_layer"]
-      filters: ["keepout_filter"]
 
       static_layer:
         plugin: "nav2_costmap_2d::StaticLayer"
@@ -94,13 +120,8 @@ global_costmap:
 
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
-        cost_scaling_factor: 3.0
-        inflation_radius: 0.7
-
-      keepout_filter:
-        plugin: "nav2_costmap_2d::KeepoutFilter"
-        enabled: True
-        filter_info_topic: "/costmap_filter_info"
+        cost_scaling_factor: 1.0
+        inflation_radius: 0.9
 
 planner_server:
   ros__parameters:
@@ -123,10 +144,14 @@ controller_server:
 
     general_goal_checker:
       plugin: "nav2_controller::SimpleGoalChecker"
+      xy_goal_tolerance: 0.5
+      yaw_goal_tolerance: 0.75
 
     FollowPath:
       plugin: "nav2_regulated_pure_pursuit_controller::RegulatedPurePursuitController"
-      use_rotate_to_heading: False
+      desired_linear_vel: 0.5
+      use_collision_detection: false # Set to off due to poor collision estimate behavior
+      use_rotate_to_heading: false
 
 route_server:
   ros__parameters:
@@ -152,19 +177,6 @@ route_server:
     CostmapScorer:
       plugin: "nav2_route::CostmapScorer"
 
-costmap_filter_info_server:
-  ros__parameters:
-    type: 0
-    filter_info_topic: "/costmap_filter_info"
-    mask_topic: "/keepout_filter_mask"
-    base: 0.0
-    multiplier: 1.0
-
-filter_mask_server:
-  ros__parameters:
-    frame_id: "map"
-    topic_name: "/keepout_filter_mask"
-
 scan_to_scan_filter_chain:
   ros__parameters:
     filter1:
@@ -180,16 +192,16 @@ vesc_to_odom_node:
     speed_to_erpm_gain: 7317.8
     speed_to_erpm_offset: 0.0
     use_servo_cmd_to_calc_angular_velocity: True
-    steering_angle_to_servo_gain: 0.9135
+    steering_angle_to_servo_gain: 0.55
     steering_angle_to_servo_offset: 0.425
-    wheelbase: 0.3175
+    wheelbase: 0.431
     publish_tf: True
 
 ackermann_to_vesc_node:
   ros__parameters:
     speed_to_erpm_gain: 7317.8
     speed_to_erpm_offset: 0.0
-    steering_angle_to_servo_gain: -0.9135
+    steering_angle_to_servo_gain: -0.55
     steering_angle_to_servo_offset: 0.425
     Kp: 0.0
     Ki: 0.0
@@ -206,7 +218,7 @@ vesc_driver_node:
     duty_cycle_min: 0.0
     position_max: 0.0
     position_min: 0.0
-    servo_max: 0.85
+    servo_max: 0.75
     servo_min: 0.15
     speed_max: 23250.0
     speed_min: -23250.0
