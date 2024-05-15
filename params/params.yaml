@@ -192,9 +192,9 @@ vesc_to_odom_node:
     speed_to_erpm_gain: 7317.8
     speed_to_erpm_offset: 0.0
     use_servo_cmd_to_calc_angular_velocity: True
-    steering_angle_to_servo_gain: 0.55
+    steering_angle_to_servo_gain: 0.95
     steering_angle_to_servo_offset: 0.425
-    wheelbase: 0.431
+    wheelbase: 0.43
     publish_tf: True
 
 ackermann_to_vesc_node:
@@ -203,6 +203,9 @@ ackermann_to_vesc_node:
     speed_to_erpm_offset: 0.0
     steering_angle_to_servo_gain: -0.55
     steering_angle_to_servo_offset: 0.425
+    Kp: 0.8
+    Ki: 0.15
+    Kd: 0.0
 
 vesc_driver_node:
   ros__parameters:
@@ -215,7 +218,7 @@ vesc_driver_node:
     duty_cycle_min: 0.0
     position_max: 0.0
     position_min: 0.0
-    servo_max: 0.75
-    servo_min: 0.15
+    servo_max: 0.80
+    servo_min: 0.05
     speed_max: 23250.0
     speed_min: -23250.0
