@@ -149,7 +149,7 @@ controller_server:
 
     FollowPath:
       plugin: "nav2_regulated_pure_pursuit_controller::RegulatedPurePursuitController"
-      desired_linear_vel: 1.5
+      desired_linear_vel: 0.5
       use_collision_detection: false # Set to off due to poor collision estimate behavior
       use_rotate_to_heading: false
 
@@ -192,9 +192,9 @@ vesc_to_odom_node:
     speed_to_erpm_gain: 7317.8
     speed_to_erpm_offset: 0.0
     use_servo_cmd_to_calc_angular_velocity: True
-    steering_angle_to_servo_gain: 0.94
+    steering_angle_to_servo_gain: 0.95
     steering_angle_to_servo_offset: 0.425
-    wheelbase: 0.431
+    wheelbase: 0.43
     publish_tf: True
 
 ackermann_to_vesc_node:
@@ -203,7 +203,7 @@ ackermann_to_vesc_node:
     speed_to_erpm_offset: 0.0
     steering_angle_to_servo_gain: -0.55
     steering_angle_to_servo_offset: 0.425
-    Kp: 0.6
+    Kp: 0.8
     Ki: 0.15
     Kd: 0.0
 
