@@ -131,7 +131,7 @@ local_costmap:
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
         cost_scaling_factor: 1.0
-        inflation_radius: 0.9
+        inflation_radius: 0.4
 
 global_costmap:
   global_costmap:
@@ -168,7 +168,7 @@ global_costmap:
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
         cost_scaling_factor: 1.0
-        inflation_radius: 0.9
+        inflation_radius: 0.4
 
 planner_server:
   ros__parameters:
@@ -212,7 +212,7 @@ waypoint_follower:
 
 route_server:
   ros__parameters:
-    graph_filepath: "/home/ubuntu/c1t_ws/src/c1t_bringup/graphs/f125_graph.geojson"
+    graph_filepath: "/home/ubuntu/c1t_ws/src/c1t_bringup/graphs/saxtonlab_graph.geojson"
     boundary_radius_to_achieve_node: 1.0
     radius_to_achieve_node: 2.0
     edge_cost_functions: ["DistanceScorer", "CostmapScorer"]
@@ -249,7 +249,7 @@ vesc_to_odom_node:
     speed_to_erpm_gain: 7317.8
     speed_to_erpm_offset: 0.0
     use_servo_cmd_to_calc_angular_velocity: True
-    steering_angle_to_servo_gain: 0.95
+    steering_angle_to_servo_gain: 0.94
     steering_angle_to_servo_offset: 0.425
     wheelbase: 0.43
     publish_tf: True
@@ -275,7 +275,7 @@ vesc_driver_node:
     duty_cycle_min: 0.0
     position_max: 0.0
     position_min: 0.0
-    servo_max: 0.85
-    servo_min: 0.00
+    servo_max: 0.75
+    servo_min: 0.15
     speed_max: 23250.0
     speed_min: -23250.0
