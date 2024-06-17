@@ -24,7 +24,6 @@ from launch_ros.substitutions import FindPackageShare
 
 from datetime import datetime
 import pathlib
-import yaml
 import os
 import shutil
 
@@ -33,15 +32,11 @@ import shutil
 
 bag_dir = ''
 
-def record_ros2_rosbag(context: LaunchContext, param_file):
+def record_ros2_rosbag(context: LaunchContext):
     global bag_dir
-    # Open vehicle config params file to process various rosbag settings
-    with open(param_file, 'r') as f:
-
-        params = yaml.safe_load(f)
         bag_dir = '/home/ubuntu/bags/rosbag2_' + str(datetime.now().strftime('%Y-%m-%d_%H%M%S'))
         proc = ExecuteProcess(
-            cmd=['ros2', 'bag', 'record', '-o', bag_dir, *params['ros2_rosbag']['ros__parameters']['topics']],
+            cmd=['ros2', 'bag', 'record', '-o', bag_dir, '-a'],
             output='screen',
             shell='true'
             )
@@ -55,7 +50,7 @@ def on_shutdown(event, context):
 
 def generate_launch_description():
     return LaunchDescription([
-        OpaqueFunction(function=record_ros2_rosbag, args=[os.path.join(get_package_share_directory("c1t_bringup"), "params", "params.yaml")]),
+        OpaqueFunction(function=record_ros2_rosbag),
         RegisterEventHandler(
             OnShutdown(on_shutdown=on_shutdown)
         )

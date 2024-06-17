@@ -200,6 +200,10 @@ controller_server:
       use_collision_detection: false # Set to off due to poor collision estimate behavior
       use_rotate_to_heading: false
       inflation_cost_scaling_factor: 1.0
+        #use_velocity_scaled_lookahead_dist: true
+        #regulated_linear_scaling_min_radius: 3.0
+        #lookahead_time: 0.3
+
 
 waypoint_follower:
   ros__parameters:
@@ -280,12 +284,3 @@ vesc_driver_node:
     servo_min: 0.00
     speed_max: 23250.0
     speed_min: -23250.0
-
-
-ros2_rosbag:
-  ros__parameters:
-    topics:
-      - "/route_graph"
-      - "/particle_cloud"
-      - "/amcl_pose"
-      - "/commands/servo/position"
