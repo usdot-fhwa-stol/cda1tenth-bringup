@@ -29,34 +29,24 @@ import getpass
 # topics as provided in the appropriate configuration file.
 
 bag_dir = ''
-record_bag = "false"
 
 def record_ros2_rosbag(context: LaunchContext):
-    global bag_dir, record_bag
-    record_bag = LaunchConfiguration("record_bag").perform(context)
-    if record_bag == "true":
-        bag_dir = '/home/' + getpass.getuser() + '/bags/rosbag2_' + str(datetime.now().strftime('%Y-%m-%d_%H%M%S'))
-        proc = ExecuteProcess(
-            cmd=['ros2', 'bag', 'record', '-o', bag_dir, '-a'],
-            output='screen',
-            shell='true'
-            )
-        return [proc]
-    else:
-        return []
+    global bag_dir
+    bag_dir = '/home/' + getpass.getuser() + '/bags/rosbag2_' + str(datetime.now().strftime('%Y-%m-%d_%H%M%S'))
+    proc = ExecuteProcess(
+        cmd=['ros2', 'bag', 'record', '-o', bag_dir, '-a'],
+        output='screen',
+        shell='true'
+        )
+    return [proc]
 
 
 def on_shutdown(event, context):
-    if record_bag == "true":
-        params_file = os.path.join(get_package_share_directory("c1t_bringup"), "params", "params.yaml")
-        shutil.copy(params_file, bag_dir)
+    params_file = os.path.join(get_package_share_directory("c1t_bringup"), "params", "params.yaml")
+    shutil.copy(params_file, bag_dir)
 
 def generate_launch_description():
-    record_bag_arg = DeclareLaunchArgument(
-        "record_bag", default_value=TextSubstitution(text="false")
-    )
     return LaunchDescription([
-        record_bag_arg,
         OpaqueFunction(function=record_ros2_rosbag),
         RegisterEventHandler(
             OnShutdown(on_shutdown=on_shutdown)
