@@ -1,14 +1,14 @@
 <launch>
   <node pkg="nav2_bt_navigator" exec="bt_navigator">
-    <param from="$(find-pkg-share c1t_bringup)/params/params.yaml"/>
+    <param from="$(find-pkg-share c1t_bringup)/params/turtlebot_sim_params.yaml"/>
   </node>
 
   <node pkg="nav2_planner" exec="planner_server">
-    <param from="$(find-pkg-share c1t_bringup)/params/params.yaml"/>
+    <param from="$(find-pkg-share c1t_bringup)/params/turtlebot_sim_params.yaml"/>
   </node>
 
   <node pkg="nav2_controller" exec="controller_server">
-     <param from="$(find-pkg-share c1t_bringup)/params/params.yaml"/>
+     <param from="$(find-pkg-share c1t_bringup)/params/turtlebot_sim_params.yaml"/>
   </node>
 
   <node pkg="nav2_behaviors" exec="behavior_server"/>
@@ -20,7 +20,7 @@
   <node pkg="carma_nav2_port_drayage_demo" exec="carma_nav2_port_drayage_demo_node"/>
 
   <node pkg="nav2_route" exec="route_server">
-    <param from="$(find-pkg-share c1t_bringup)/params/params.yaml"/>
+    <param from="$(find-pkg-share c1t_bringup)/params/turtlebot_sim_params.yaml"/>
   </node>
 
   <node pkg="nav2_lifecycle_manager" exec="lifecycle_manager" name="lifecycle_manager_navigation">
