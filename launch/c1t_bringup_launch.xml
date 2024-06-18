@@ -6,4 +6,6 @@
   <include file="$(find-pkg-share c1t_bringup)/launch/transforms_launch.xml"/>
 
   <node pkg="foxglove_bridge" exec="foxglove_bridge" name="foxglove_bridge" args="--ros-args --log-level WARN"/>
+
+  <executable cmd="ros2 topic pub --once /ackermann_cmd ackermann_msgs/msg/AckermannDriveStamped"/>
 </launch>
