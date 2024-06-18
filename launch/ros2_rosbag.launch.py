@@ -15,15 +15,11 @@
 from launch import LaunchDescription, LaunchContext
 from launch.actions import OpaqueFunction
 from ament_index_python.packages import get_package_share_directory
-from launch.actions import DeclareLaunchArgument, ExecuteProcess, RegisterEventHandler
+from launch.actions import ExecuteProcess, RegisterEventHandler
 from launch.event_handlers import OnShutdown
-from launch.substitutions import TextSubstitution
 from datetime import datetime
-from launch.substitutions import LaunchConfiguration
-
 import os
 import shutil
-import getpass
 
 # This function is used to generate a command to record a ROS 2 rosbag that excludes topics
 # topics as provided in the appropriate configuration file.
@@ -32,11 +28,10 @@ bag_dir = ''
 
 def record_ros2_rosbag(context: LaunchContext):
     global bag_dir
-    bag_dir = '/home/' + getpass.getuser() + '/bags/rosbag2_' + str(datetime.now().strftime('%Y-%m-%d_%H%M%S'))
+    bag_dir = '/home/' + os.getlogin() + '/c1t_bags/rosbag2_' + str(datetime.now().strftime('%Y-%m-%d_%H%M%S'))
     proc = ExecuteProcess(
         cmd=['ros2', 'bag', 'record', '-o', bag_dir, '-a'],
         output='screen',
-        shell='true'
         )
     return [proc]
 
