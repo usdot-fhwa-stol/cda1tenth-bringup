@@ -200,9 +200,6 @@ controller_server:
       use_collision_detection: false # Set to off due to poor collision estimate behavior
       use_rotate_to_heading: false
       inflation_cost_scaling_factor: 1.0
-        #use_velocity_scaled_lookahead_dist: true
-        #regulated_linear_scaling_min_radius: 3.0
-        #lookahead_time: 0.3
 
 
 waypoint_follower:
