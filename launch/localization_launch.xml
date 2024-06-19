@@ -1,10 +1,13 @@
 <launch>
+
+  <arg name="vehicle" description="red_truck, blue_truck, or turtlebot"/>
+
   <node pkg="nav2_map_server" exec="map_server" name="map_server">
     <param name="yaml_filename" value="$(find-pkg-share c1t_bringup)/maps/saxtonlab_clean.yaml"/>
   </node>
 
   <node pkg="nav2_amcl" exec="amcl" name="amcl">
-    <param from="$(find-pkg-share c1t_bringup)/params/params.yaml"/>
+    <param from="$(find-pkg-share c1t_bringup)/params/$(var vehicle)_params.yaml"/>
   </node>
 
   <node pkg="nav2_lifecycle_manager" exec="lifecycle_manager" name="lifecycle_manager_localization">
