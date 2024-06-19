@@ -1,9 +1,12 @@
 <launch>
+  <arg name="record_bag" default="false"/>
+
   <include file="$(find-pkg-share c1t_bringup)/launch/drivers_launch.xml"/>
   <include file="$(find-pkg-share c1t_bringup)/launch/localization_launch.xml"/>
   <include file="$(find-pkg-share c1t_bringup)/launch/navigation_launch.xml"/>
   <include file="$(find-pkg-share c1t_bringup)/launch/teleop_launch.xml"/>
   <include file="$(find-pkg-share c1t_bringup)/launch/transforms_launch.xml"/>
+  <include file="$(find-pkg-share c1t_bringup)/launch/ros2_rosbag.launch.py" if="$(var record_bag)"/>
 
   <node pkg="foxglove_bridge" exec="foxglove_bridge" name="foxglove_bridge" args="--ros-args --log-level WARN"/>
 </launch>
