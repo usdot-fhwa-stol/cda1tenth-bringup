@@ -14,4 +14,8 @@
   <export>
     <build_type>ament_cmake</build_type>
   </export>
+
+  <depend>dsrc_driver</depend>
+  <depend>cpp_message</depend>
+
 </package>

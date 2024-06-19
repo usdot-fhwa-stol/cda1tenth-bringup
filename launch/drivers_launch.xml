@@ -1,7 +1,4 @@
 <launch>
-  <include file="$(find-pkg-share dsrc_driver)/launch/dsrc_driver.py"/>
-  <include file="$(find-pkg-share cpp_message)/launch/cpp_message_launch.py"/>
-
   <node pkg="vesc_ackermann" exec="vesc_to_odom_node" name="vesc_to_odom_node">
     <param from="$(find-pkg-share c1t_bringup)/params/params.yaml"/>
   </node>
@@ -33,13 +30,5 @@
     <param from="$(find-pkg-share c1t_bringup)/params/params.yaml"/>
     <remap from="/scan" to="/scan_raw"/>
     <remap from="/scan_filtered" to="/scan"/>
-  </node>
-
-  <node pkg="nav2_lifecycle_manager" exec="lifecycle_manager" name="lifecycle_manager_comms">
-    <param name="autostart" value="true"/>
-    <param
-      name="node_names"
-      value="cpp_message_node, dsrc_driver_node"
-      value-sep=", "/>
   </node>
 </launch>
