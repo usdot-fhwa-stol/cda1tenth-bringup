@@ -15,7 +15,8 @@
 from launch import LaunchDescription, LaunchContext
 from launch.actions import OpaqueFunction
 from ament_index_python.packages import get_package_share_directory
-from launch.actions import ExecuteProcess, RegisterEventHandler
+from launch.actions import ExecuteProcess, RegisterEventHandler, DeclareLaunchArgument
+from launch.substitutions import LaunchConfiguration
 from launch.event_handlers import OnShutdown
 from datetime import datetime
 import os
@@ -37,10 +38,13 @@ def record_ros2_rosbag(context: LaunchContext):
 
 
 def on_shutdown(event, context):
-    params_file = os.path.join(get_package_share_directory("c1t_bringup"), "params", "params.yaml")
+    vehicle_name = LaunchConfiguration('vehicle').perform(context)
+    params_file = os.path.join(get_package_share_directory("c1t_bringup"), "params", vehicle_name + "_params.yaml")
     shutil.copy(params_file, bag_dir)
 
 def generate_launch_description():
+    vehicle_launch_arg = DeclareLaunchArgument('vehicle')
+
     return LaunchDescription([
         OpaqueFunction(function=record_ros2_rosbag),
         RegisterEventHandler(
