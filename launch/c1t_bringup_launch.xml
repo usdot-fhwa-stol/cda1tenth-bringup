@@ -17,7 +17,7 @@
   <include file="$(find-pkg-share c1t_bringup)/launch/transforms_launch.xml" unless="$(eval '\'$(var vehicle)\' == \'turtlebot\'')"/>
   <include file="$(find-pkg-share c1t_bringup)/launch/ros2_rosbag.launch.py" if="$(var record_bag)"/>
 
-  <node pkg="rviz2" exec="rviz2" name="rviz" args="--display-config $(find-pkg-share nav2_bringup)/rviz/nav2_default_view.rviz" if="$(eval '\'$(var vehicle)\' == \'turtlebot\'')"/>
+  <node pkg="rviz2" exec="rviz2" name="rviz" args="--display-config $(find-pkg-share c1t_bringup)/rviz/nav2_route.rviz" if="$(eval '\'$(var vehicle)\' == \'turtlebot\'')"/>
   <node pkg="nav2_lifecycle_manager" exec="lifecycle_manager" name="lifecycle_manager_comms" if="$(eval '\'$(var vehicle)\' == \'turtlebot\'')">
     <param name="autostart" value="true"/>
     <param
