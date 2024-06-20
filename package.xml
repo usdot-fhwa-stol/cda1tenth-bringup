@@ -18,12 +18,13 @@
   <depend>nav2_route</depend>
   <depend>tf2_ros</depend>
   <depend>teleop_twist_joy</depend>
+  <depend>dsrc_driver</depend>
+  <depend>cpp_message</depend>
+  <depend>carma_nav2_port_drayage_demo</depend>
 
   <export>
     <build_type>ament_cmake</build_type>
   </export>
 
-  <depend>dsrc_driver</depend>
-  <depend>cpp_message</depend>
 
 </package>
