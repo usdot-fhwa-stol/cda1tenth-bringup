@@ -20,10 +20,17 @@ You must complete the following configuration steps before your C1T vehicle will
 Run the following command to launch the C1T system:
 
 ```console
-$ ros2 launch c1t_bringup c1t_bringup_launch.xml
+$ ros2 launch c1t_bringup c1t_bringup_launch.xml vehicle:=[red_truck, blue_truck, turtlebot] record_bag:=[true, false]
 ```
 
 This will launch all necessary subsystems, such as drivers, localization, and navigation.
+
+The `vehicle` argument controls the parameters file used to launch the system (i.e `vehicle:=red_truck` will load `red_truck_params.yaml`).
+Additionally, since the turtlebot is only used in simulation, launching with `vehicle:=turtlebot` will load additional subsystems specific
+to the simulation environment and ignore subsystems only needed for physical vehicles.
+
+The `record_bag` argument (default: false) specifies if a ROS2 bag should be recorded under the directory `~/c1t_bags/`. All topics from the
+system will be recorded and the parameter file used for the run will be copied to the bag directory on system shutdown.
 
 ## Post launch
 
