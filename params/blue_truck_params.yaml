@@ -280,3 +280,7 @@ vesc_driver_node:
     servo_min: 0.00
     speed_max: 23250.0
     speed_min: -23250.0
+
+port_drayage_demo:
+  ros__parameters:
+    cmv_id: "blue_truck"
