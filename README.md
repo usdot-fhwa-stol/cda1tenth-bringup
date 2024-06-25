@@ -50,9 +50,11 @@ After launching the nodes included in `c1t_bingup`, additional actions are neede
    > [NOTE]
    > The `vesc_to_odom_node` ROS node is responsible for publishing the odometry information it receives from the VESC motor controller. However, it does not start publishing this information until the VESC driver stack receives a command.
 
-2. If using a physical vehicle, Rviz will need to be launched on an external PC on the same network and `ROS_DOMAIN_ID` as the vehicle. A specific RViz configuration is needed for visualizing and interacting with Nav2, which can be found in this package under the `rviz` directory. Run RViz in a terminal using the command `rviz2` and open this file using `File > Open Config`.
+2. If using a physical vehicle, RViz will need to be launched on an external PC on the same network and `ROS_DOMAIN_ID` as the vehicle. A specific RViz configuration is needed for visualizing and interacting with Nav2, which can be found in this package under the `rviz` directory. Run RViz in a terminal using the command `rviz2` and open this file using `File > Open Config`.
 
-3. A navigation command can now be sent to the C1T vehicle by using the `2D Goal Pose` option in the RViz GUI.
+3. In RViz, set the vehicle's initial pose estimate by selecting the `2D Pose Estimate` button at the top and drawing the approximate pose of the vehicle with respect to the map. The ROS2 nodes being used by the vehicle should be visualized after the estimate is drawn.
+
+4. A navigation command can now be sent to the C1T vehicle by using the `2D Goal Pose` button to draw a goal pose on the map using the RViz GUI.
 
 
 ### Shutdown 
