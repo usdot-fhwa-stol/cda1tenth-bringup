@@ -43,7 +43,7 @@ This will launch all necessary subsystems, such as drivers, localization, and na
 
 ## Post launch
 
-After launching the nodes included in `c1t_bingup`, additional actions are needed to finalize the system on a physical vehicle.
+After launching the nodes included in `c1t_bringup`, additional actions are needed to finalize the system on a physical vehicle.
 
 1. Send an empty message to the `/ackermann_cmd` topic to initialize the VESC by publishing via command line on the vehicle with `ros2 pub /ackermann_cmd ackermann_msgs/msg/AckermannDriveStamped`. Use `CTRL + C` after a few have sent and the original terminal output has updated.
 
