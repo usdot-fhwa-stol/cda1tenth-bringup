@@ -1,11 +1,38 @@
 <launch>
-  <include file="$(find-pkg-share c1t_bringup)/launch/drivers_launch.xml"/>
-  <include file="$(find-pkg-share c1t_bringup)/launch/localization_launch.xml"/>
-  <include file="$(find-pkg-share c1t_bringup)/launch/navigation_launch.xml"/>
-  <include file="$(find-pkg-share c1t_bringup)/launch/teleop_launch.xml"/>
-  <include file="$(find-pkg-share c1t_bringup)/launch/transforms_launch.xml"/>
+  <arg name="record_bag" default="false" description="Record ROS2 bag to ~/c1t_bags if true"/>
+  <arg name="vehicle" description="red_truck, blue_truck, or turtlebot"/>
 
-  <node pkg="foxglove_bridge" exec="foxglove_bridge" name="foxglove_bridge" args="--ros-args --log-level WARN"/>
+  <!--Launch files exclusive to C1T trucks-->
+  <include file="$(find-pkg-share c1t_bringup)/launch/teleop_launch.xml" unless="$(eval '\'$(var vehicle)\' == \'turtlebot\'')"/>
+  <include file="$(find-pkg-share c1t_bringup)/launch/transforms_launch.xml" unless="$(eval '\'$(var vehicle)\' == \'turtlebot\'')"/>
+  <include file="$(find-pkg-share c1t_bringup)/launch/drivers_launch.xml" unless="$(eval '\'$(var vehicle)\' == \'turtlebot\'')">
+    <arg name="vehicle" value="$(var vehicle)"/>
+  </include>
 
-  <executable cmd="ros2 topic pub --once /ackermann_cmd ackermann_msgs/msg/AckermannDriveStamped"/>
+  <!--Launch files exclusive to Turtlebot simulator-->
+  <node pkg="rviz2" exec="rviz2" name="rviz" args="--display-config $(find-pkg-share c1t_bringup)/rviz/nav2_route.rviz" if="$(eval '\'$(var vehicle)\' == \'turtlebot\'')"/>
+
+  <!--Common launch files-->
+  <include file="$(find-pkg-share c1t_bringup)/launch/localization_launch.xml">
+    <arg name="vehicle" value="$(var vehicle)"/>
+  </include>
+  <include file="$(find-pkg-share c1t_bringup)/launch/navigation_launch.xml">
+    <arg name="vehicle" value="$(var vehicle)"/>
+  </include>
+  <include file="$(find-pkg-share dsrc_driver)/launch/dsrc_driver.py"/>
+  <include file="$(find-pkg-share cpp_message)/launch/cpp_message_launch.py"/>
+
+  <!--Record ROS2 bag if record_bag:=true-->
+  <include file="$(find-pkg-share c1t_bringup)/launch/ros2_rosbag.launch.py" if="$(var record_bag)">
+    <arg name="vehicle" value="$(var vehicle)"/>
+  </include>
+
+  <!--Lifecycle manager for cpp_message and dsrc_driver-->
+  <node pkg="nav2_lifecycle_manager" exec="lifecycle_manager" name="lifecycle_manager_comms">
+    <param name="autostart" value="true"/>
+    <param
+      name="node_names"
+      value="cpp_message_node, dsrc_driver_node"
+      value-sep=", "/>
+  </node>
 </launch>
