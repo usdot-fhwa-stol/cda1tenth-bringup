@@ -1,6 +1,6 @@
 <robot name="red_truck">
   <link name="base_link" />
-  <link name="footprint" />
+  <link name="base_footprint" />
   <link name="imu" />
   <link name="laser" />
 
@@ -19,7 +19,7 @@
 
   <joint name="footprint_joint" type="fixed">
     <parent link="base_link"/>
-    <child link="footprint"/>
+    <child link="base_footprint"/>
     <origin xyz="0 0 -0.043" />
   </joint>
 
