@@ -276,7 +276,7 @@ vesc_driver_node:
     duty_cycle_min: 0.0
     position_max: 0.0
     position_min: 0.0
-    servo_max: 0.85
-    servo_min: 0.00
+    servo_max: 0.925
+    servo_min: -0.075
     speed_max: 23250.0
     speed_min: -23250.0
