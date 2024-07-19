@@ -35,4 +35,11 @@
       value="bt_navigator, planner_server, controller_server, behavior_server, smoother_server, waypoint_follower, route_server, port_drayage_demo"
       value-sep=", "/>
   </node>
+
+  <node pkg="carma_nav2_emergency_stop" exec="carma_nav2_emergency_stop_node" name="carma_nav2_emergency_stop_node">
+    <param
+      name="node_names"
+      value="bt_navigator, controller_server, behavior_server, smoother_server, waypoint_follower, route_server, port_drayage_demo"
+      value-sep=", "/>
+  </node>
 </launch>
