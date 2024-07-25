@@ -1,0 +1,10 @@
+{
+    "type": "FeatureCollection",
+    "name": "graph",
+    "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::3857" } },
+    "features": [
+    { "type": "Feature", "properties": { "id": 1 }, "geometry": { "type": "Point", "coordinates": [ 0.0, -0.4 ] } },
+    { "type": "Feature", "properties": { "id": 2 }, "geometry": { "type": "Point", "coordinates": [ 1.0, -0.4 ] } },
+    { "type": "Feature", "properties": { "id": 3, "startid": 1, "endid": 2 }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ 0.0, -0.4 ], [ 1.0, -0.4 ] ] ] } }
+    ]
+}
