@@ -200,6 +200,7 @@ controller_server:
       use_collision_detection: false # Set to off due to poor collision estimate behavior
       use_rotate_to_heading: false
       inflation_cost_scaling_factor: 1.0
+      lookahead_dist: 0.7
 
 waypoint_follower:
   ros__parameters:
@@ -259,7 +260,7 @@ ackermann_to_vesc_node:
   ros__parameters:
     speed_to_erpm_gain: 4100.0
     speed_to_erpm_offset: 0.0
-    steering_angle_to_servo_gain: 0.60
+    steering_angle_to_servo_gain: 0.65
     steering_angle_to_servo_offset: 0.425
     Kp: 0.8
     Ki: 0.15
