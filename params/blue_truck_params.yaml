@@ -192,7 +192,7 @@ controller_server:
     general_goal_checker:
       plugin: "nav2_controller::SimpleGoalChecker"
       xy_goal_tolerance: 0.5
-      yaw_goal_tolerance: 0.75
+      yaw_goal_tolerance: 3.14
 
     FollowPath:
       plugin: "nav2_regulated_pure_pursuit_controller::RegulatedPurePursuitController"
@@ -200,6 +200,7 @@ controller_server:
       use_collision_detection: false # Set to off due to poor collision estimate behavior
       use_rotate_to_heading: false
       inflation_cost_scaling_factor: 1.0
+      lookahead_dist: 0.7
 
 waypoint_follower:
   ros__parameters:
@@ -213,7 +214,7 @@ waypoint_follower:
 
 route_server:
   ros__parameters:
-    graph_filepath: "/home/ubuntu/c1t_ws/src/c1t_bringup/graphs/pvl_graph.geojson"
+    graph_filepath: "/home/ubuntu/c1t_ws/src/c1t_bringup/graphs/garage_graph.geojson"
     boundary_radius_to_achieve_node: 1.0
     radius_to_achieve_node: 2.0
     edge_cost_functions: ["DistanceScorer", "CostmapScorer"]
@@ -250,7 +251,7 @@ vesc_to_odom_node:
     speed_to_erpm_gain: 4100.0
     speed_to_erpm_offset: 0.0
     use_servo_cmd_to_calc_angular_velocity: True
-    steering_angle_to_servo_gain: 0.94
+    steering_angle_to_servo_gain: -0.94
     steering_angle_to_servo_offset: 0.425
     wheelbase: 0.43
     publish_tf: True
@@ -259,7 +260,7 @@ ackermann_to_vesc_node:
   ros__parameters:
     speed_to_erpm_gain: 4100.0
     speed_to_erpm_offset: 0.0
-    steering_angle_to_servo_gain: -0.55
+    steering_angle_to_servo_gain: 0.55
     steering_angle_to_servo_offset: 0.425
     Kp: 0.8
     Ki: 0.15
