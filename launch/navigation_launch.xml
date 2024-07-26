@@ -20,7 +20,9 @@
 
   <node pkg="nav2_waypoint_follower" exec="waypoint_follower"/>
 
-  <node pkg="carma_nav2_port_drayage_demo" exec="carma_nav2_port_drayage_demo_node"/>
+  <node pkg="carma_nav2_port_drayage_demo" exec="carma_nav2_port_drayage_demo_node">
+    <param from="$(find-pkg-share c1t_bringup)/params/$(var vehicle)_params.yaml"/>
+  </node>
 
   <node pkg="nav2_route" exec="route_server">
     <param from="$(find-pkg-share c1t_bringup)/params/$(var vehicle)_params.yaml"/>
@@ -31,6 +33,13 @@
     <param
       name="node_names"
       value="bt_navigator, planner_server, controller_server, behavior_server, smoother_server, waypoint_follower, route_server, port_drayage_demo"
+      value-sep=", "/>
+  </node>
+
+  <node pkg="carma_nav2_emergency_stop" exec="carma_nav2_emergency_stop_node" name="carma_nav2_emergency_stop_node">
+    <param
+      name="node_names"
+      value="bt_navigator, controller_server, behavior_server, smoother_server, waypoint_follower, route_server, port_drayage_demo"
       value-sep=", "/>
   </node>
 </launch>

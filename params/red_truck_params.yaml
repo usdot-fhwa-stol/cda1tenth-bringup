@@ -213,7 +213,7 @@ waypoint_follower:
 
 route_server:
   ros__parameters:
-    graph_filepath: "/home/ubuntu/c1t_ws/src/c1t_bringup/graphs/pvl_graph.geojson"
+    graph_filepath: "/home/ubuntu/c1t_ws/src/c1t_bringup/graphs/garage_graph.geojson"
     boundary_radius_to_achieve_node: 1.0
     radius_to_achieve_node: 2.0
     edge_cost_functions: ["DistanceScorer", "CostmapScorer"]
@@ -280,3 +280,7 @@ vesc_driver_node:
     servo_min: -0.075
     speed_max: 23250.0
     speed_min: -23250.0
+
+port_drayage_demo:
+  ros__parameters:
+    cmv_id: "red_truck"
