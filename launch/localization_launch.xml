@@ -3,7 +3,7 @@
   <arg name="vehicle" description="red_truck, blue_truck, or turtlebot"/>
 
   <node pkg="nav2_map_server" exec="map_server" name="map_server">
-    <param name="yaml_filename" value="$(find-pkg-share c1t_bringup)/maps/garage.yaml"/>
+    <param name="yaml_filename" value="$(find-pkg-share c1t_bringup)/maps/garage_graph_lanes.yaml"/>
   </node>
 
   <node pkg="nav2_amcl" exec="amcl" name="amcl">
