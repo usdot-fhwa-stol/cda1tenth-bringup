@@ -399,19 +399,6 @@
         {
             "geometry": {
                 "coordinates": [
-                    -4.599999904632568,
-                    2.4000000953674316
-                ],
-                "type": "Point"
-            },
-            "properties": {
-                "id": 61
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "coordinates": [
                     -4.400000095367432,
                     1.600000023841858
                 ],
@@ -432,45 +419,6 @@
             },
             "properties": {
                 "id": 63
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "coordinates": [
-                    -4.400000095367432,
-                    -0.4000000059604645
-                ],
-                "type": "Point"
-            },
-            "properties": {
-                "id": 64
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "coordinates": [
-                    -4.400000095367432,
-                    -1.399999976158142
-                ],
-                "type": "Point"
-            },
-            "properties": {
-                "id": 65
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "coordinates": [
-                    -4.0,
-                    -2.0
-                ],
-                "type": "Point"
-            },
-            "properties": {
-                "id": 66
             },
             "type": "Feature"
         },
@@ -549,32 +497,6 @@
             },
             "properties": {
                 "id": 90
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "coordinates": [
-                    -4.599999904632568,
-                    0.20000000298023224
-                ],
-                "type": "Point"
-            },
-            "properties": {
-                "id": 91
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "coordinates": [
-                    -4.599999904632568,
-                    1.2000000476837158
-                ],
-                "type": "Point"
-            },
-            "properties": {
-                "id": 93
             },
             "type": "Feature"
         },
@@ -836,17 +758,6 @@
                 "type": "MultiLineString"
             },
             "properties": {
-                "endid": 61,
-                "id": 67,
-                "startid": 22
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "type": "MultiLineString"
-            },
-            "properties": {
                 "endid": 24,
                 "id": 53,
                 "startid": 23
@@ -946,42 +857,9 @@
                 "type": "MultiLineString"
             },
             "properties": {
-                "endid": 62,
-                "id": 68,
-                "startid": 61
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "type": "MultiLineString"
-            },
-            "properties": {
-                "endid": 63,
-                "id": 69,
-                "startid": 62
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "type": "MultiLineString"
-            },
-            "properties": {
                 "endid": 88,
                 "id": 103,
                 "startid": 62
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "type": "MultiLineString"
-            },
-            "properties": {
-                "endid": 64,
-                "id": 70,
-                "startid": 63
             },
             "type": "Feature"
         },
@@ -1001,39 +879,6 @@
                 "type": "MultiLineString"
             },
             "properties": {
-                "endid": 65,
-                "id": 71,
-                "startid": 64
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "type": "MultiLineString"
-            },
-            "properties": {
-                "endid": 66,
-                "id": 72,
-                "startid": 65
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "type": "MultiLineString"
-            },
-            "properties": {
-                "endid": 29,
-                "id": 73,
-                "startid": 66
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "type": "MultiLineString"
-            },
-            "properties": {
                 "endid": 63,
                 "id": 77,
                 "startid": 74
@@ -1045,30 +890,8 @@
                 "type": "MultiLineString"
             },
             "properties": {
-                "endid": 91,
-                "id": 101,
-                "startid": 74
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "type": "MultiLineString"
-            },
-            "properties": {
                 "endid": 62,
                 "id": 79,
-                "startid": 75
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "type": "MultiLineString"
-            },
-            "properties": {
-                "endid": 93,
-                "id": 98,
                 "startid": 75
             },
             "type": "Feature"
@@ -1114,28 +937,6 @@
                 "endid": 27,
                 "id": 106,
                 "startid": 90
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "type": "MultiLineString"
-            },
-            "properties": {
-                "endid": 64,
-                "id": 102,
-                "startid": 91
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "type": "MultiLineString"
-            },
-            "properties": {
-                "endid": 63,
-                "id": 107,
-                "startid": 93
             },
             "type": "Feature"
         }

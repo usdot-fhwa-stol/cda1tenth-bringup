@@ -282,84 +282,6 @@
         {
             "geometry": {
                 "coordinates": [
-                    -4.400000095367432,
-                    2.5999999046325684
-                ],
-                "type": "Point"
-            },
-            "properties": {
-                "id": 23
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "coordinates": [
-                    -3.5999999046325684,
-                    2.4000000953674316
-                ],
-                "type": "Point"
-            },
-            "properties": {
-                "id": 24
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "coordinates": [
-                    -3.4000000953674316,
-                    1.600000023841858
-                ],
-                "type": "Point"
-            },
-            "properties": {
-                "id": 25
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "coordinates": [
-                    -3.4000000953674316,
-                    0.6000000238418579
-                ],
-                "type": "Point"
-            },
-            "properties": {
-                "id": 26
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "coordinates": [
-                    -3.4000000953674316,
-                    -0.4000000059604645
-                ],
-                "type": "Point"
-            },
-            "properties": {
-                "id": 27
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "coordinates": [
-                    -3.4000000953674316,
-                    -1.399999976158142
-                ],
-                "type": "Point"
-            },
-            "properties": {
-                "id": 28
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "coordinates": [
                     -3.200000047683716,
                     -2.200000047683716
                 ],
@@ -523,32 +445,6 @@
             },
             "properties": {
                 "id": 82
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "coordinates": [
-                    -3.5999999046325684,
-                    1.2000000476837158
-                ],
-                "type": "Point"
-            },
-            "properties": {
-                "id": 88
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "coordinates": [
-                    -3.5999999046325684,
-                    0.20000000298023224
-                ],
-                "type": "Point"
-            },
-            "properties": {
-                "id": 90
             },
             "type": "Feature"
         },
@@ -825,86 +721,9 @@
                 "type": "MultiLineString"
             },
             "properties": {
-                "endid": 23,
-                "id": 52,
-                "startid": 22
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "type": "MultiLineString"
-            },
-            "properties": {
                 "endid": 61,
                 "id": 67,
                 "startid": 22
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "type": "MultiLineString"
-            },
-            "properties": {
-                "endid": 24,
-                "id": 53,
-                "startid": 23
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "type": "MultiLineString"
-            },
-            "properties": {
-                "endid": 25,
-                "id": 54,
-                "startid": 24
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "type": "MultiLineString"
-            },
-            "properties": {
-                "endid": 26,
-                "id": 55,
-                "startid": 25
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "type": "MultiLineString"
-            },
-            "properties": {
-                "endid": 27,
-                "id": 56,
-                "startid": 26
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "type": "MultiLineString"
-            },
-            "properties": {
-                "endid": 28,
-                "id": 57,
-                "startid": 27
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "type": "MultiLineString"
-            },
-            "properties": {
-                "endid": 29,
-                "id": 58,
-                "startid": 28
             },
             "type": "Feature"
         },
@@ -968,30 +787,8 @@
                 "type": "MultiLineString"
             },
             "properties": {
-                "endid": 88,
-                "id": 103,
-                "startid": 62
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "type": "MultiLineString"
-            },
-            "properties": {
                 "endid": 64,
                 "id": 70,
-                "startid": 63
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "type": "MultiLineString"
-            },
-            "properties": {
-                "endid": 90,
-                "id": 105,
                 "startid": 63
             },
             "type": "Feature"
@@ -1034,31 +831,9 @@
                 "type": "MultiLineString"
             },
             "properties": {
-                "endid": 63,
-                "id": 77,
-                "startid": 74
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "type": "MultiLineString"
-            },
-            "properties": {
                 "endid": 91,
                 "id": 101,
                 "startid": 74
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "type": "MultiLineString"
-            },
-            "properties": {
-                "endid": 62,
-                "id": 79,
-                "startid": 75
             },
             "type": "Feature"
         },
@@ -1092,28 +867,6 @@
                 "endid": 75,
                 "id": 97,
                 "startid": 82
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "type": "MultiLineString"
-            },
-            "properties": {
-                "endid": 26,
-                "id": 104,
-                "startid": 88
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "type": "MultiLineString"
-            },
-            "properties": {
-                "endid": 27,
-                "id": 106,
-                "startid": 90
             },
             "type": "Feature"
         },
