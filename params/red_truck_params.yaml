@@ -283,4 +283,6 @@ vesc_driver_node:
 
 port_drayage_demo:
   ros__parameters:
-    cmv_id: "red_truck"
+    cmv_id: "C1T-1"
+    standard_route: "/home/ubuntu/c1t_ws/src/c1t_bringup/graphs/garage_graph_standard.geojson"
+    inspection_route: "/home/ubuntu/c1t_ws/src/c1t_bringup/graphs/garage_graph_inspection.geojson"
