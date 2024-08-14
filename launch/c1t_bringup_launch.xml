@@ -32,6 +32,7 @@
   <!--Lifecycle manager for cpp_message and dsrc_driver-->
   <node pkg="nav2_lifecycle_manager" exec="lifecycle_manager" name="lifecycle_manager_comms">
     <param name="autostart" value="true"/>
+    <param name="bond_timeout" value="0.0"/>
     <param
       name="node_names"
       value="cpp_message_node, dsrc_driver_node"
