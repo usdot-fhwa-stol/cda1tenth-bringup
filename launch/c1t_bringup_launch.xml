@@ -16,7 +16,6 @@
 
   <node pkg="rviz2" exec="rviz2" name="rviz" args="--display-config $(find-pkg-share c1t_bringup)/rviz/nav2_route.rviz" if="$(eval '\'$(var vehicle)\' == \'turtlebot\'')"/>
 
-
   <!--Common launch files-->
   <include file="$(find-pkg-share c1t_bringup)/launch/localization_launch.xml">
     <arg name="vehicle" value="$(var vehicle)"/>
