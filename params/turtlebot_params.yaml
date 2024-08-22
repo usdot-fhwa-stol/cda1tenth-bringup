@@ -375,5 +375,3 @@ route_server:
 port_drayage_demo:
   ros__parameters:
     cmv_id: "turtlebot"
-    standard_route: "/home/$USER/c1t_ws/src/c1t_bringup/graphs/turtlebot_outer_loop.geojson"
-    inspection_route: "/home/$USER/c1t_ws/src/c1t_bringup/graphs/turtlebot_outer_loop.geojson"
