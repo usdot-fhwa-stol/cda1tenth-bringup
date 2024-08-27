@@ -261,3 +261,4 @@ vesc_driver_node:
 port_drayage_demo:
   ros__parameters:
     cmv_id: "C1T-1"
+    message_processing_delay: 0
