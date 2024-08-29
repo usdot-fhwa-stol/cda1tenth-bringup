@@ -13,6 +13,7 @@
 
   <node pkg="twist_to_ackermann" exec="twist_to_ackermann_node" name="twist_to_ackermann_node">
     <remap from="/ackermann" to="/ackermann_cmd"/>
+    <remap from="/cmd_vel" to="/cmd_vel_smoothed"/>
   </node>
 
   <node pkg="sllidar_ros2" exec="sllidar_node" name="sllidar_node">
