@@ -10,4 +10,5 @@ ament_auto_package(
     params
     maps
     urdf
+    rviz
 )
