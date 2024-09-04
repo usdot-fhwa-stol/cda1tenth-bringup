@@ -24,7 +24,7 @@
     <arg name="vehicle" value="$(var vehicle)"/>
   </include>
   <include file="$(find-pkg-share dsrc_driver)/launch/dsrc_driver.py"/>
-  <include file="$(find-pkg-share cpp_message)/launch/cpp_message_launch.py"/>
+  <include file="$(find-pkg-share c1t_bringup)/launch/cpp_message_launch.xml"/>
 
   <!--Record ROS2 bag if record_bag:=true-->
   <include file="$(find-pkg-share c1t_bringup)/launch/ros2_rosbag.launch.py" if="$(var record_bag)">

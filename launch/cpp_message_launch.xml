@@ -1,0 +1,7 @@
+<launch>
+    <arg name="log_level" default="WARN"/>
+    <node pkg="cpp_message" exec="cpp_message_node_exec" name="cpp_message_node" args="use_intra_process_comms:=true --log_level $(var log_level)">
+        <remap from="inbound_binary_msg" to="comms/inbound_binary_msg"/>
+        <remap from="outbound_binary_msg" to="comms/outbound_binary_msg"/>
+    </node>
+</launch>
