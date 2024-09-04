@@ -161,7 +161,7 @@ controller_server:
 
     general_goal_checker:
       plugin: "nav2_controller::SimpleGoalChecker"
-      xy_goal_tolerance: 0.5
+      xy_goal_tolerance: 0.4
       yaw_goal_tolerance: 3.14
 
     FollowPath:
@@ -170,7 +170,7 @@ controller_server:
       use_collision_detection: false # Set to off due to poor collision estimate behavior
       use_rotate_to_heading: false
       inflation_cost_scaling_factor: 1.0
-      lookahead_dist: 0.7
+      lookahead_dist: 0.75
 
 waypoint_follower:
   ros__parameters:
