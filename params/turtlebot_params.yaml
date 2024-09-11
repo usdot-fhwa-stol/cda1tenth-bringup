@@ -375,3 +375,4 @@ route_server:
 port_drayage_demo:
   ros__parameters:
     cmv_id: "turtlebot"
+    message_processing_delay: 0

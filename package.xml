@@ -19,6 +19,8 @@
   <depend>dsrc_driver</depend>
   <depend>cpp_message</depend>
   <depend>carma_nav2_port_drayage_demo</depend>
+  <depend>carma_nav2_behavior_tree</depend>
+  <depend>carma_nav2_emergency_stop</depend>
 
   <export>
     <build_type>ament_cmake</build_type>

@@ -111,27 +111,12 @@ local_costmap:
       always_send_full_costmap: True
       origin_x: -1.0
       origin_y: -1.0
-      plugins: ["obstacle_layer", "inflation_layer"]
-
-      obstacle_layer:
-        plugin: "nav2_costmap_2d::ObstacleLayer"
-        observation_sources: scan
-
-        scan:
-          topic: /scan
-          max_obstacle_height: 2.0
-          clearing: True
-          marking: True
-          data_type: "LaserScan"
-          raytrace_max_range: 3.0
-          raytrace_min_range: 0.0
-          obstacle_max_range: 2.5
-          obstacle_min_range: 0.0
+      plugins: ["inflation_layer"]
 
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
         cost_scaling_factor: 1.0
-        inflation_radius: 0.4
+        inflation_radius: 0.01
 
 global_costmap:
   global_costmap:
@@ -144,31 +129,16 @@ global_costmap:
       resolution: 0.04
       track_unknown_space: true
       always_send_full_costmap: True
-      plugins: ["static_layer", "obstacle_layer", "inflation_layer"]
+      plugins: ["static_layer", "inflation_layer"]
 
       static_layer:
         plugin: "nav2_costmap_2d::StaticLayer"
         map_subscribe_transient_local: True
 
-      obstacle_layer:
-        plugin: "nav2_costmap_2d::ObstacleLayer"
-        observation_sources: scan
-
-        scan:
-          topic: /scan
-          max_obstacle_height: 2.0
-          clearing: True
-          marking: True
-          data_type: "LaserScan"
-          raytrace_max_range: 3.0
-          raytrace_min_range: 0.0
-          obstacle_max_range: 2.5
-          obstacle_min_range: 0.0
-
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
         cost_scaling_factor: 1.0
-        inflation_radius: 0.4
+        inflation_radius: 0.01
 
 planner_server:
   ros__parameters:
@@ -191,7 +161,7 @@ controller_server:
 
     general_goal_checker:
       plugin: "nav2_controller::SimpleGoalChecker"
-      xy_goal_tolerance: 0.5
+      xy_goal_tolerance: 0.4
       yaw_goal_tolerance: 3.14
 
     FollowPath:
@@ -200,6 +170,7 @@ controller_server:
       use_collision_detection: false # Set to off due to poor collision estimate behavior
       use_rotate_to_heading: false
       inflation_cost_scaling_factor: 1.0
+      lookahead_dist: 0.75
 
 waypoint_follower:
   ros__parameters:
@@ -211,9 +182,15 @@ waypoint_follower:
       enabled: True
       waypoint_pause_duration: 200
 
+velocity_smoother:
+  ros__parameters:
+    max_velocity: [1.0, 0.0, 5.0]
+    max_accel: [0.3, 0.0, 3.2]
+    max_decel: [-0.5, 0.0, -3.2]
+
 route_server:
   ros__parameters:
-    graph_filepath: "/home/ubuntu/c1t_ws/src/c1t_bringup/graphs/pvl_graph.geojson"
+    graph_filepath: "/home/ubuntu/c1t_ws/src/c1t_bringup/graphs/garage_center_line.geojson"
     boundary_radius_to_achieve_node: 1.0
     radius_to_achieve_node: 2.0
     edge_cost_functions: ["DistanceScorer", "CostmapScorer"]
@@ -247,7 +224,7 @@ vesc_to_odom_node:
   ros__parameters:
     odom_frame: odom
     base_frame: base_link
-    speed_to_erpm_gain: 7317.8
+    speed_to_erpm_gain: 4100.0
     speed_to_erpm_offset: 0.0
     use_servo_cmd_to_calc_angular_velocity: True
     steering_angle_to_servo_gain: 0.94
@@ -257,7 +234,7 @@ vesc_to_odom_node:
 
 ackermann_to_vesc_node:
   ros__parameters:
-    speed_to_erpm_gain: 7317.8
+    speed_to_erpm_gain: 4100.0
     speed_to_erpm_offset: 0.0
     steering_angle_to_servo_gain: -0.55
     steering_angle_to_servo_offset: 0.425
@@ -276,11 +253,12 @@ vesc_driver_node:
     duty_cycle_min: 0.0
     position_max: 0.0
     position_min: 0.0
-    servo_max: 0.85
-    servo_min: 0.00
+    servo_max: 1.0
+    servo_min: 0.0
     speed_max: 23250.0
     speed_min: -23250.0
 
 port_drayage_demo:
   ros__parameters:
-    cmv_id: "red_truck"
+    cmv_id: "C1T-1"
+    message_processing_delay: 0
