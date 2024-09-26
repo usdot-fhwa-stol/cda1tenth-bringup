@@ -9,4 +9,6 @@ ament_auto_package(
     launch
     params
     maps
+    urdf
+    rviz
 )

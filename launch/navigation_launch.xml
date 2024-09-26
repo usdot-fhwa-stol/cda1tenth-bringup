@@ -1,31 +1,49 @@
 <launch>
+
+  <arg name="vehicle" description="red_truck, blue_truck, or turtlebot"/>
+
   <node pkg="nav2_bt_navigator" exec="bt_navigator">
-    <param from="$(find-pkg-share c1t_bringup)/params/params.yaml"/>
+    <param from="$(find-pkg-share c1t_bringup)/params/$(var vehicle)_params.yaml"/>
   </node>
 
   <node pkg="nav2_planner" exec="planner_server">
-    <param from="$(find-pkg-share c1t_bringup)/params/params.yaml"/>
+    <param from="$(find-pkg-share c1t_bringup)/params/$(var vehicle)_params.yaml"/>
   </node>
 
   <node pkg="nav2_controller" exec="controller_server">
-     <param from="$(find-pkg-share c1t_bringup)/params/params.yaml"/>
+     <param from="$(find-pkg-share c1t_bringup)/params/$(var vehicle)_params.yaml"/>
   </node>
 
   <node pkg="nav2_behaviors" exec="behavior_server"/>
 
   <node pkg="nav2_smoother" exec="smoother_server"/>
 
+  <node pkg="nav2_velocity_smoother" exec="velocity_smoother">
+     <param from="$(find-pkg-share c1t_bringup)/params/$(var vehicle)_params.yaml"/>
+  </node>
+
   <node pkg="nav2_waypoint_follower" exec="waypoint_follower"/>
 
+  <node pkg="carma_nav2_port_drayage_demo" exec="carma_nav2_port_drayage_demo_node">
+    <param from="$(find-pkg-share c1t_bringup)/params/$(var vehicle)_params.yaml"/>
+  </node>
+
   <node pkg="nav2_route" exec="route_server">
-    <param from="$(find-pkg-share c1t_bringup)/params/params.yaml"/>
+    <param from="$(find-pkg-share c1t_bringup)/params/$(var vehicle)_params.yaml"/>
   </node>
 
   <node pkg="nav2_lifecycle_manager" exec="lifecycle_manager" name="lifecycle_manager_navigation">
     <param name="autostart" value="true"/>
     <param
       name="node_names"
-      value="bt_navigator, planner_server, controller_server, behavior_server, smoother_server, waypoint_follower, route_server"
+      value="bt_navigator, planner_server, controller_server, behavior_server, smoother_server, velocity_smoother, waypoint_follower, route_server, port_drayage_demo"
+      value-sep=", "/>
+  </node>
+
+  <node pkg="carma_nav2_emergency_stop" exec="carma_nav2_emergency_stop_node" name="carma_nav2_emergency_stop_node">
+    <param
+      name="node_names"
+      value="bt_navigator, controller_server, behavior_server, smoother_server, velocity_smoother, waypoint_follower, route_server, port_drayage_demo"
       value-sep=", "/>
   </node>
 </launch>

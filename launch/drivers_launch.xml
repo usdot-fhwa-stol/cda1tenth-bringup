@@ -1,18 +1,19 @@
 <launch>
   <node pkg="vesc_ackermann" exec="vesc_to_odom_node" name="vesc_to_odom_node">
-    <param from="$(find-pkg-share c1t_bringup)/params/params.yaml"/>
+    <param from="$(find-pkg-share c1t_bringup)/params/$(var vehicle)_params.yaml"/>
   </node>
 
   <node pkg="vesc_ackermann" exec="ackermann_to_vesc_node" name="ackermann_to_vesc_node">
-    <param from="$(find-pkg-share c1t_bringup)/params/params.yaml"/>
+    <param from="$(find-pkg-share c1t_bringup)/params/$(var vehicle)_params.yaml"/>
   </node>
 
   <node pkg="vesc_driver" exec="vesc_driver_node" name="vesc_driver_node">
-    <param from="$(find-pkg-share c1t_bringup)/params/params.yaml"/>
+    <param from="$(find-pkg-share c1t_bringup)/params/$(var vehicle)_params.yaml"/>
   </node>
 
   <node pkg="twist_to_ackermann" exec="twist_to_ackermann_node" name="twist_to_ackermann_node">
     <remap from="/ackermann" to="/ackermann_cmd"/>
+    <remap from="/cmd_vel" to="/cmd_vel_smoothed"/>
   </node>
 
   <node pkg="sllidar_ros2" exec="sllidar_node" name="sllidar_node">
@@ -27,8 +28,11 @@
   </node>
 
   <node pkg="laser_filters" exec="scan_to_scan_filter_chain" name="scan_to_scan_filter_chain">
-    <param from="$(find-pkg-share c1t_bringup)/params/params.yaml"/>
+    <param from="$(find-pkg-share c1t_bringup)/params/$(var vehicle)_params.yaml"/>
     <remap from="/scan" to="/scan_raw"/>
     <remap from="/scan_filtered" to="/scan"/>
   </node>
+
+  <!--Publish empty Ackermann command to initialize VESC and straighten wheels-->
+  <executable cmd="ros2 topic pub --once /ackermann_cmd ackermann_msgs/msg/AckermannDriveStamped"/>
 </launch>
