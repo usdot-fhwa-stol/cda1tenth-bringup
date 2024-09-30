@@ -238,9 +238,7 @@ ackermann_to_vesc_node:
     speed_to_erpm_offset: 0.0
     steering_angle_to_servo_gain: 0.55
     steering_angle_to_servo_offset: 0.425
-    Kp: 0.8
-    Ki: 0.15
-    Kd: 0.0
+    cutoff_frequency: 10.0
 
 vesc_driver_node:
   ros__parameters:
