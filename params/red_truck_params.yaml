@@ -160,8 +160,9 @@ controller_server:
       plugin: "nav2_controller::SimpleProgressChecker"
 
     general_goal_checker:
-      plugin: "nav2_controller::SimpleGoalChecker"
+      plugin: "nav2_controller::StoppedGoalChecker"
       xy_goal_tolerance: 0.4
+      trans_stopped_velocity: 0.01
       yaw_goal_tolerance: 3.14
 
     FollowPath:
