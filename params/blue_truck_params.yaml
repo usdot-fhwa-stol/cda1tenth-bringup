@@ -160,9 +160,10 @@ controller_server:
       plugin: "nav2_controller::SimpleProgressChecker"
 
     general_goal_checker:
-      plugin: "nav2_controller::SimpleGoalChecker"
+      plugin: "nav2_controller::StoppedGoalChecker"
       xy_goal_tolerance: 0.4
       yaw_goal_tolerance: 3.14
+      trans_stopped_velocity: 0.05
 
     FollowPath:
       plugin: "nav2_regulated_pure_pursuit_controller::RegulatedPurePursuitController"
@@ -171,6 +172,9 @@ controller_server:
       use_rotate_to_heading: false
       inflation_cost_scaling_factor: 1.0
       lookahead_dist: 0.75
+      approach_velocity_scaling_dist: 0.3
+      use_fixed_curvature_lookahead: true
+      interpolate_curvature_after_goal: true
 
 waypoint_follower:
   ros__parameters:
