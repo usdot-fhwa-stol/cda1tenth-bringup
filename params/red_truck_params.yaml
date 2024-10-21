@@ -230,7 +230,7 @@ vesc_to_odom_node:
     speed_to_erpm_gain: 4100.0 # Gain tuned to scale speed to ERPM
     speed_to_erpm_offset: 0.0 # Offset for converting speed to ERPM
     use_servo_cmd_to_calc_angular_velocity: True # Use servo to calculate angular velocity
-    steering_angle_to_servo_gain: 0.94 # Gain tuned to scale steering angle to servo command
+    steering_angle_to_servo_gain: -0.94 # Gain tuned to scale steering angle to servo command
     steering_angle_to_servo_offset: 0.425 # Offset for converting steering angle to servo command
     wheelbase: 0.43
     publish_tf: True
@@ -239,7 +239,7 @@ ackermann_to_vesc_node:
   ros__parameters:
     speed_to_erpm_gain: 4100.0 # Gain tuned to scale speed to ERPM
     speed_to_erpm_offset: 0.0 # Offset for converting speed to ERPM
-    steering_angle_to_servo_gain: -0.55 # Gain tuned to scale steering angle to servo command
+    steering_angle_to_servo_gain: 0.55 # Gain tuned to scale steering angle to servo command
     steering_angle_to_servo_offset: 0.425 # Offset for converting steering angle to servo command
     Kp: 0.8
     Ki: 0.15
