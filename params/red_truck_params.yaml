@@ -161,16 +161,19 @@ controller_server:
 
     general_goal_checker:
       plugin: "nav2_controller::SimpleGoalChecker"
-      xy_goal_tolerance: 0.4
-      yaw_goal_tolerance: 3.14
+      xy_goal_tolerance: 0.4 # Translational tolerance to meet goal completion criteria
+      yaw_goal_tolerance: 3.14 # Rotational tolerance to meet goal completion criteria
 
     FollowPath:
       plugin: "nav2_regulated_pure_pursuit_controller::RegulatedPurePursuitController"
-      desired_linear_vel: 0.5
+      desired_linear_vel: 0.5 # The desired maximum linear velocity
       use_collision_detection: false # Set to off due to poor collision estimate behavior
-      use_rotate_to_heading: false
+      use_rotate_to_heading: false # Recommended on for all robot types that can rotate in place
       inflation_cost_scaling_factor: 1.0
-      lookahead_dist: 0.75
+      lookahead_dist: 0.75 # The lookahead distance (m) to use to find the lookahead point
+      approach_velocity_scaling_dist: 0.3 # The distance (m) left on the path at which to start slowing down.
+      use_fixed_curvature_lookahead: true # Whether to use a fixed lookahead distance to compute curvature from
+      interpolate_curvature_after_goal: true # Interpolate a carrot after the goal dedicated to the curvate calculation (to avoid oscilaltions at the end of the path)
 
 waypoint_follower:
   ros__parameters:
@@ -224,20 +227,20 @@ vesc_to_odom_node:
   ros__parameters:
     odom_frame: odom
     base_frame: base_link
-    speed_to_erpm_gain: 4100.0
-    speed_to_erpm_offset: 0.0
-    use_servo_cmd_to_calc_angular_velocity: True
-    steering_angle_to_servo_gain: 0.94
-    steering_angle_to_servo_offset: 0.425
+    speed_to_erpm_gain: 4100.0 # Gain tuned to scale speed to ERPM
+    speed_to_erpm_offset: 0.0 # Offset for converting speed to ERPM
+    use_servo_cmd_to_calc_angular_velocity: True # Use servo to calculate angular velocity
+    steering_angle_to_servo_gain: -0.94 # Gain tuned to scale steering angle to servo command
+    steering_angle_to_servo_offset: 0.425 # Offset for converting steering angle to servo command
     wheelbase: 0.43
     publish_tf: True
 
 ackermann_to_vesc_node:
   ros__parameters:
-    speed_to_erpm_gain: 4100.0
-    speed_to_erpm_offset: 0.0
-    steering_angle_to_servo_gain: -0.55
-    steering_angle_to_servo_offset: 0.425
+    speed_to_erpm_gain: 4100.0 # Gain tuned to scale speed to ERPM
+    speed_to_erpm_offset: 0.0 # Offset for converting speed to ERPM
+    steering_angle_to_servo_gain: 0.55 # Gain tuned to scale steering angle to servo command
+    steering_angle_to_servo_offset: 0.425 # Offset for converting steering angle to servo command
     Kp: 0.8
     Ki: 0.15
     Kd: 0.0
@@ -260,5 +263,5 @@ vesc_driver_node:
 
 port_drayage_demo:
   ros__parameters:
-    cmv_id: "C1T-1"
-    message_processing_delay: 0
+    cmv_id: "C1T-1" # Vehicle's ID for Port Drayage use case (ID must match on infrastructure side)
+    message_processing_delay: 0 # Time to wait after receiving a new command before driving
