@@ -56,7 +56,6 @@ After launching the nodes included in `c1t_bringup`, additional actions are need
 
 4. A navigation command can now be sent to the C1T vehicle by using the `2D Goal Pose` button to draw a goal pose on the map using the RViz GUI.
 
-
 ### Shutdown 
 To shut down the system, use `CTRL + C` on the `c1t_bringup` and `rviz2` terminals. Run `ros2 node list` to verify all nodes are shut down before relaunching the system.
 

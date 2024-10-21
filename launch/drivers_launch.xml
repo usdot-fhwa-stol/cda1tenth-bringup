@@ -34,5 +34,5 @@
   </node>
 
   <!--Publish empty Ackermann command to initialize VESC and straighten wheels-->
-  <executable cmd="ros2 topic pub --once /ackermann_cmd ackermann_msgs/msg/AckermannDriveStamped"/>
+  <executable cmd="ros2 topic pub --times 5 /ackermann_cmd ackermann_msgs/msg/AckermannDriveStamped"/>
 </launch>
