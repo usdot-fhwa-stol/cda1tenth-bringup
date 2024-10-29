@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22)
-project(c1t_bringup)
+project(cda1tenth_bringup)
 
 find_package(ament_cmake_auto REQUIRED)
 ament_auto_find_build_dependencies()

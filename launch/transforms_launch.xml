@@ -6,7 +6,7 @@
     pkg="robot_state_publisher"
     exec="robot_state_publisher"
     name="robot_state_publisher"
-    args="$(find-pkg-share c1t_bringup)/urdf/$(var vehicle).urdf"
+    args="$(find-pkg-share cda1tenth_bringup)/urdf/$(var vehicle).urdf"
   />
 
 </launch>

@@ -29,7 +29,7 @@ bag_dir = ''
 
 def record_ros2_rosbag(context: LaunchContext):
     global bag_dir
-    bag_dir = '/home/' + os.getlogin() + '/c1t_bags/rosbag2_' + str(datetime.now().strftime('%Y-%m-%d_%H%M%S'))
+    bag_dir = '/home/' + os.getlogin() + '/cda_bags/rosbag2_' + str(datetime.now().strftime('%Y-%m-%d_%H%M%S'))
     proc = ExecuteProcess(
         cmd=['ros2', 'bag', 'record', '-o', bag_dir, '-a'],
         output='screen',
@@ -39,7 +39,7 @@ def record_ros2_rosbag(context: LaunchContext):
 
 def on_shutdown(event, context):
     vehicle_name = LaunchConfiguration('vehicle').perform(context)
-    params_file = os.path.join(get_package_share_directory("c1t_bringup"), "params", vehicle_name + "_params.yaml")
+    params_file = os.path.join(get_package_share_directory("cda1tenth_bringup"), "params", vehicle_name + "_params.yaml")
     shutil.copy(params_file, bag_dir)
 
 def generate_launch_description():
