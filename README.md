@@ -1,10 +1,10 @@
 # cda1tenth_bringup
 
-This package contains the launch and configuration files needed to bring up a physical or simulated CDA1tenth vehicle. Some functionality may depend on the companion packages from [navigation2_extensions](https://github.com/usdot-fhwa-stol/navigation2_extensions) which provides route server and CDA additions to the CDA1tenth system.
+This package contains the launch and configuration files needed to bring up a physical or simulated CDA1Tenth vehicle. Some functionality may depend on the companion packages from [navigation2_extensions](https://github.com/usdot-fhwa-stol/navigation2_extensions) which provides route server and CDA additions to the CDA1Tenth system.
 
 ## Prerequisites
 
-The following configuration steps must be completed before a CDA1tenth vehicle or simulation will be ready for bringup.
+The following configuration steps must be completed before a CDA1Tenth vehicle or simulation will be ready for bringup.
 
 1. Download the `nav2_route_server` branch and build it from source, which can be found [here](https://github.com/usdot-fhwa-stol/navigation2/tree/nav2_route_server).
 
@@ -23,7 +23,7 @@ The following configuration steps must be completed before a CDA1tenth vehicle o
 
 ## Launch
 
-Run the following command to launch the CDA1tenth system:
+Run the following command to launch the CDA1Tenth system:
 
 ```
 $ ros2 launch cda1tenth_bringup cda1tenth_bringup_launch.xml vehicle:=[red_truck, blue_truck, turtlebot] record_bag:=[true, false]
@@ -34,7 +34,7 @@ This will launch all necessary subsystems, such as drivers, localization, and na
 ### Launch Arguments
 - `vehicle` controls the parameter file used to launch the system and requires an input
 
-  - `red_truck` and `blue_truck` target parameter files specific to their respective CDA1tenth vehicles
+  - `red_truck` and `blue_truck` target parameter files specific to their respective CDA1Tenth vehicles
 
   - `turtlebot` runs a Gazebo-based simulation that allows for running core `cda1tenth_bringup` packages locally without hardware interface nodes
 
@@ -54,7 +54,7 @@ After launching the nodes included in `cda1tenth_bringup`, additional actions ar
 
 3. In RViz, set the vehicle's initial pose estimate by selecting the `2D Pose Estimate` button at the top and drawing the approximate pose of the vehicle with respect to the map. The ROS2 nodes being used by the vehicle should be visualized after the estimate is drawn.
 
-4. A navigation command can now be sent to the CDA1tenth vehicle by using the `2D Goal Pose` button to draw a goal pose on the map using the RViz GUI.
+4. A navigation command can now be sent to the CDA1Tenth vehicle by using the `2D Goal Pose` button to draw a goal pose on the map using the RViz GUI.
 
 ### Shutdown 
 To shut down the system, use `CTRL + C` on the `cda1tenth_bringup` and `rviz2` terminals. Run `ros2 node list` to verify all nodes are shut down before relaunching the system.

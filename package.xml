@@ -3,7 +3,7 @@
 <package format="3">
   <name>cda1tenth_bringup</name>
   <version>0.0.0</version>
-  <description>Bringup scripts and configurations for CDA1tenth</description>
+  <description>Bringup scripts and configurations for CDA1Tenth</description>
   <maintainer email="carma@dot.gov">CARMA Support</maintainer>
   <license>Apache-2.0</license>
 
