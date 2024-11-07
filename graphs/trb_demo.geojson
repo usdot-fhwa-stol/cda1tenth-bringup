@@ -49,7 +49,7 @@
             "geometry": {
                 "coordinates": [
                     -1.0,
-                    1.399999976158142
+                    1.2999999523162842
                 ],
                 "type": "Point"
             },
@@ -61,21 +61,8 @@
         {
             "geometry": {
                 "coordinates": [
-                    -1.399999976158142,
-                    1.2000000476837158
-                ],
-                "type": "Point"
-            },
-            "properties": {
-                "id": 4
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "coordinates": [
                     0.0,
-                    1.399999976158142
+                    1.2999999523162842
                 ],
                 "type": "Point"
             },
@@ -88,7 +75,7 @@
             "geometry": {
                 "coordinates": [
                     1.0,
-                    1.399999976158142
+                    1.2999999523162842
                 ],
                 "type": "Point"
             },
@@ -101,19 +88,6 @@
             "geometry": {
                 "coordinates": [
                     1.399999976158142,
-                    1.2000000476837158
-                ],
-                "type": "Point"
-            },
-            "properties": {
-                "id": 7
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "coordinates": [
-                    1.5,
                     0.800000011920929
                 ],
                 "type": "Point"
@@ -126,7 +100,7 @@
         {
             "geometry": {
                 "coordinates": [
-                    1.5,
+                    1.399999976158142,
                     -0.20000000298023224
                 ],
                 "type": "Point"
@@ -139,7 +113,7 @@
         {
             "geometry": {
                 "coordinates": [
-                    1.5,
+                    1.399999976158142,
                     -1.2000000476837158
                 ],
                 "type": "Point"
@@ -152,21 +126,8 @@
         {
             "geometry": {
                 "coordinates": [
-                    1.399999976158142,
-                    -1.600000023841858
-                ],
-                "type": "Point"
-            },
-            "properties": {
-                "id": 11
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "coordinates": [
                     1.0,
-                    -1.7999999523162842
+                    -1.7000000476837158
                 ],
                 "type": "Point"
             },
@@ -179,7 +140,7 @@
             "geometry": {
                 "coordinates": [
                     0.0,
-                    -1.7999999523162842
+                    -1.7000000476837158
                 ],
                 "type": "Point"
             },
@@ -192,25 +153,12 @@
             "geometry": {
                 "coordinates": [
                     -1.0,
-                    -1.7999999523162842
+                    -1.7000000476837158
                 ],
                 "type": "Point"
             },
             "properties": {
                 "id": 14
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "coordinates": [
-                    -1.399999976158142,
-                    -1.600000023841858
-                ],
-                "type": "Point"
-            },
-            "properties": {
-                "id": 15
             },
             "type": "Feature"
         },
@@ -241,8 +189,8 @@
                 "type": "MultiLineString"
             },
             "properties": {
-                "endid": 4,
-                "id": 18,
+                "endid": 3,
+                "id": 32,
                 "startid": 2
             },
             "type": "Feature"
@@ -263,17 +211,6 @@
                 "type": "MultiLineString"
             },
             "properties": {
-                "endid": 3,
-                "id": 19,
-                "startid": 4
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "type": "MultiLineString"
-            },
-            "properties": {
                 "endid": 6,
                 "id": 21,
                 "startid": 5
@@ -285,20 +222,9 @@
                 "type": "MultiLineString"
             },
             "properties": {
-                "endid": 7,
-                "id": 22,
-                "startid": 6
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "type": "MultiLineString"
-            },
-            "properties": {
                 "endid": 8,
-                "id": 23,
-                "startid": 7
+                "id": 33,
+                "startid": 6
             },
             "type": "Feature"
         },
@@ -329,20 +255,9 @@
                 "type": "MultiLineString"
             },
             "properties": {
-                "endid": 11,
-                "id": 26,
-                "startid": 10
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "type": "MultiLineString"
-            },
-            "properties": {
                 "endid": 12,
-                "id": 27,
-                "startid": 11
+                "id": 34,
+                "startid": 10
             },
             "type": "Feature"
         },
@@ -373,20 +288,9 @@
                 "type": "MultiLineString"
             },
             "properties": {
-                "endid": 15,
-                "id": 30,
-                "startid": 14
-            },
-            "type": "Feature"
-        },
-        {
-            "geometry": {
-                "type": "MultiLineString"
-            },
-            "properties": {
                 "endid": 0,
-                "id": 31,
-                "startid": 15
+                "id": 35,
+                "startid": 14
             },
             "type": "Feature"
         }
