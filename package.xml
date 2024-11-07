@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>c1t_bringup</name>
+  <name>cda1tenth_bringup</name>
   <version>0.0.0</version>
-  <description>Bringup scripts and configurations for CARMA 1Tenth (C1T)</description>
+  <description>Bringup scripts and configurations for CDA1Tenth</description>
   <maintainer email="carma@dot.gov">CARMA Support</maintainer>
   <license>Apache-2.0</license>
 
@@ -18,9 +18,9 @@
   <depend>teleop_twist_joy</depend>
   <depend>dsrc_driver</depend>
   <depend>cpp_message</depend>
-  <depend>carma_nav2_port_drayage_demo</depend>
-  <depend>carma_nav2_behavior_tree</depend>
-  <depend>carma_nav2_emergency_stop</depend>
+  <depend>nav2_port_drayage_demo</depend>
+  <depend>nav2_route_server_behavior_tree</depend>
+  <depend>nav2_emergency_stop</depend>
 
   <export>
     <build_type>ament_cmake</build_type>

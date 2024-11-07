@@ -1,33 +1,33 @@
 <launch>
-  <arg name="record_bag" default="false" description="Record ROS2 bag to ~/c1t_bags if true"/>
+  <arg name="record_bag" default="false" description="Record ROS2 bag to ~/cda_bags if true"/>
   <arg name="vehicle" description="red_truck, blue_truck, or turtlebot"/>
 
-  <!--Launch files exclusive to C1T trucks-->
-  <include file="$(find-pkg-share c1t_bringup)/launch/teleop_launch.xml" unless="$(eval '\'$(var vehicle)\' == \'turtlebot\'')"/>
-  <include file="$(find-pkg-share c1t_bringup)/launch/transforms_launch.xml" unless="$(eval '\'$(var vehicle)\' == \'turtlebot\'')">
+  <!--Launch files exclusive to CDA1Tenth trucks-->
+  <include file="$(find-pkg-share cda1tenth_bringup)/launch/teleop_launch.xml" unless="$(eval '\'$(var vehicle)\' == \'turtlebot\'')"/>
+  <include file="$(find-pkg-share cda1tenth_bringup)/launch/transforms_launch.xml" unless="$(eval '\'$(var vehicle)\' == \'turtlebot\'')">
     <arg name="vehicle" value="$(var vehicle)"/>
   </include>
-  <include file="$(find-pkg-share c1t_bringup)/launch/drivers_launch.xml" unless="$(eval '\'$(var vehicle)\' == \'turtlebot\'')">
+  <include file="$(find-pkg-share cda1tenth_bringup)/launch/drivers_launch.xml" unless="$(eval '\'$(var vehicle)\' == \'turtlebot\'')">
     <arg name="vehicle" value="$(var vehicle)"/>
   </include>
 
   <!--Launch files exclusive to Turtlebot simulator-->
   <include file="$(find-pkg-share turtlebot3_gazebo)/launch/turtlebot3_world.launch.py" if="$(eval '\'$(var vehicle)\' == \'turtlebot\'')"/>
 
-  <node pkg="rviz2" exec="rviz2" name="rviz" args="--display-config $(find-pkg-share c1t_bringup)/rviz/nav2_route.rviz" if="$(eval '\'$(var vehicle)\' == \'turtlebot\'')"/>
+  <node pkg="rviz2" exec="rviz2" name="rviz" args="--display-config $(find-pkg-share cda1tenth_bringup)/rviz/nav2_route.rviz" if="$(eval '\'$(var vehicle)\' == \'turtlebot\'')"/>
 
   <!--Common launch files-->
-  <include file="$(find-pkg-share c1t_bringup)/launch/localization_launch.xml">
+  <include file="$(find-pkg-share cda1tenth_bringup)/launch/localization_launch.xml">
     <arg name="vehicle" value="$(var vehicle)"/>
   </include>
-  <include file="$(find-pkg-share c1t_bringup)/launch/navigation_launch.xml">
+  <include file="$(find-pkg-share cda1tenth_bringup)/launch/navigation_launch.xml">
     <arg name="vehicle" value="$(var vehicle)"/>
   </include>
   <include file="$(find-pkg-share dsrc_driver)/launch/dsrc_driver.py"/>
-  <include file="$(find-pkg-share c1t_bringup)/launch/cpp_message_launch.xml"/>
+  <include file="$(find-pkg-share cda1tenth_bringup)/launch/cpp_message_launch.xml"/>
 
   <!--Record ROS2 bag if record_bag:=true-->
-  <include file="$(find-pkg-share c1t_bringup)/launch/ros2_rosbag.launch.py" if="$(var record_bag)">
+  <include file="$(find-pkg-share cda1tenth_bringup)/launch/ros2_rosbag.launch.py" if="$(var record_bag)">
     <arg name="vehicle" value="$(var vehicle)"/>
   </include>
 
