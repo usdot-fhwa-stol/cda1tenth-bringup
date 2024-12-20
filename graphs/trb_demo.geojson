@@ -9,12 +9,13 @@
         {
             "geometry": {
                 "coordinates": [
-                    -1.5,
+                    -1.600000023841858,
                     -1.2000000476837158
                 ],
                 "type": "Point"
             },
             "properties": {
+                "frame": "map",
                 "id": 0
             },
             "type": "Feature"
@@ -22,12 +23,13 @@
         {
             "geometry": {
                 "coordinates": [
-                    -1.5,
+                    -1.600000023841858,
                     -0.20000000298023224
                 ],
                 "type": "Point"
             },
             "properties": {
+                "frame": "map",
                 "id": 1
             },
             "type": "Feature"
@@ -35,12 +37,13 @@
         {
             "geometry": {
                 "coordinates": [
-                    -1.5,
+                    -1.600000023841858,
                     0.800000011920929
                 ],
                 "type": "Point"
             },
             "properties": {
+                "frame": "map",
                 "id": 2
             },
             "type": "Feature"
@@ -49,11 +52,12 @@
             "geometry": {
                 "coordinates": [
                     -1.0,
-                    1.2999999523162842
+                    1.399999976158142
                 ],
                 "type": "Point"
             },
             "properties": {
+                "frame": "map",
                 "id": 3
             },
             "type": "Feature"
@@ -62,11 +66,12 @@
             "geometry": {
                 "coordinates": [
                     0.0,
-                    1.2999999523162842
+                    1.399999976158142
                 ],
                 "type": "Point"
             },
             "properties": {
+                "frame": "map",
                 "id": 5
             },
             "type": "Feature"
@@ -75,11 +80,12 @@
             "geometry": {
                 "coordinates": [
                     1.0,
-                    1.2999999523162842
+                    1.399999976158142
                 ],
                 "type": "Point"
             },
             "properties": {
+                "frame": "map",
                 "id": 6
             },
             "type": "Feature"
@@ -87,12 +93,13 @@
         {
             "geometry": {
                 "coordinates": [
-                    1.399999976158142,
+                    1.5,
                     0.800000011920929
                 ],
                 "type": "Point"
             },
             "properties": {
+                "frame": "map",
                 "id": 8
             },
             "type": "Feature"
@@ -100,12 +107,13 @@
         {
             "geometry": {
                 "coordinates": [
-                    1.399999976158142,
+                    1.5,
                     -0.20000000298023224
                 ],
                 "type": "Point"
             },
             "properties": {
+                "frame": "map",
                 "id": 9
             },
             "type": "Feature"
@@ -113,12 +121,13 @@
         {
             "geometry": {
                 "coordinates": [
-                    1.399999976158142,
+                    1.5,
                     -1.2000000476837158
                 ],
                 "type": "Point"
             },
             "properties": {
+                "frame": "map",
                 "id": 10
             },
             "type": "Feature"
@@ -132,6 +141,7 @@
                 "type": "Point"
             },
             "properties": {
+                "frame": "map",
                 "id": 12
             },
             "type": "Feature"
@@ -145,6 +155,7 @@
                 "type": "Point"
             },
             "properties": {
+                "frame": "map",
                 "id": 13
             },
             "type": "Feature"
@@ -158,6 +169,7 @@
                 "type": "Point"
             },
             "properties": {
+                "frame": "map",
                 "id": 14
             },
             "type": "Feature"
