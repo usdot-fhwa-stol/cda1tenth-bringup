@@ -1,6 +1,6 @@
 <root main_tree_to_execute="MainTree">
   <BehaviorTree ID="MainTree">
-  <RetryUntilSuccessful name="RetryUntilSuccess" num_attempts="30000">
+  <RetryUntilSuccessful name="RetryUntilSuccess" num_attempts="50">
     <PipelineSequence name="NavigateThroughRouteToPose">
       <RateController hz="1.0">
         <ComputeRoute goal="{goal}" path="{path}" error_code_id="{compute_route_error_code}"/>
