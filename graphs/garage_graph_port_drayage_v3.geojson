@@ -16,7 +16,16 @@
             },
             "properties": {
                 "frame": "map",
-                "id": 2
+                "id": 2,
+                "operations": {
+                    "stop": {
+                        "type": "stop",
+                        "trigger": "NODE", 
+                        "metadata": {
+                            "wait_for": 2.0
+                        }
+                    }
+                }
             },
             "type": "Feature"
         },
@@ -464,7 +473,16 @@
             },
             "properties": {
                 "frame": "map",
-                "id": 114
+                "id": 114,
+                "operations": { 
+                    "trigger_event": { 
+                        "type": "TriggerEvent", 
+                        "trigger": "NODE", 
+                        "metadata": { 
+                            "service_name": "entrance_reached" 
+                        }
+                    }
+                }
             },
             "type": "Feature"
         },
@@ -604,7 +622,16 @@
             },
             "properties": {
                 "frame": "map",
-                "id": 139
+                "id": 139,
+                "operations": {
+                    "stop": {
+                        "type": "stop",
+                        "trigger": "NODE", 
+                        "metadata": {
+                            "wait_for": 2.0
+                        }
+                    }
+                }
             },
             "type": "Feature"
         },
@@ -618,7 +645,16 @@
             },
             "properties": {
                 "frame": "map",
-                "id": 140
+                "id": 140,
+                "operations": {
+                    "stop": {
+                        "type": "stop",
+                        "trigger": "NODE", 
+                        "metadata": {
+                            "wait_for": 2.0
+                        }
+                    }
+                }   
             },
             "type": "Feature"
         },
@@ -716,7 +752,16 @@
             },
             "properties": {
                 "frame": "map",
-                "id": 153
+                "id": 153,
+                "operations": {
+                    "stop": {
+                        "type": "stop",
+                        "trigger": "NODE", 
+                        "metadata": {
+                            "wait_for": 2.0
+                        }
+                    }
+                }
             },
             "type": "Feature"
         },
