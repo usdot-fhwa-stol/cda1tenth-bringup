@@ -16,16 +16,7 @@
             },
             "properties": {
                 "frame": "map",
-                "id": 2,
-                "operations": {
-                    "stop": {
-                        "type": "stop",
-                        "trigger": "NODE", 
-                        "metadata": {
-                            "wait_for": 2.0
-                        }
-                    }
-                }
+                "id": 2
             },
             "type": "Feature"
         },
@@ -622,16 +613,7 @@
             },
             "properties": {
                 "frame": "map",
-                "id": 139,
-                "operations": {
-                    "stop": {
-                        "type": "stop",
-                        "trigger": "NODE", 
-                        "metadata": {
-                            "wait_for": 2.0
-                        }
-                    }
-                }
+                "id": 139
             },
             "type": "Feature"
         },
@@ -645,16 +627,7 @@
             },
             "properties": {
                 "frame": "map",
-                "id": 140,
-                "operations": {
-                    "stop": {
-                        "type": "stop",
-                        "trigger": "NODE", 
-                        "metadata": {
-                            "wait_for": 2.0
-                        }
-                    }
-                }   
+                "id": 140   
             },
             "type": "Feature"
         },
@@ -752,16 +725,7 @@
             },
             "properties": {
                 "frame": "map",
-                "id": 153,
-                "operations": {
-                    "stop": {
-                        "type": "stop",
-                        "trigger": "NODE", 
-                        "metadata": {
-                            "wait_for": 2.0
-                        }
-                    }
-                }
+                "id": 153
             },
             "type": "Feature"
         },

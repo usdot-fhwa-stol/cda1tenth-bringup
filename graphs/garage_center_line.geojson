@@ -297,16 +297,7 @@
                 "type": "Point"
             },
             "properties": {
-                "id": 21,
-                "operations": {
-                    "stop": {
-                        "type": "stop",
-                        "trigger": "NODE", 
-                        "metadata": {
-                            "wait_for": 2.0
-                        }
-                    }
-                }
+                "id": 21
             },
             "type": "Feature"
         },
@@ -345,16 +336,7 @@
                 "type": "Point"
             },
             "properties": {
-                "id": 24,
-                "operations": {
-                    "stop": {
-                        "type": "stop",
-                        "trigger": "NODE", 
-                        "metadata": {
-                            "wait_for": 2.0
-                        }
-                    }
-                }
+                "id": 24
             },
             "type": "Feature"
         },
@@ -692,16 +674,7 @@
                 "type": "Point"
             },
             "properties": {
-                "id": 100,
-                "operations": {
-                    "stop": {
-                        "type": "stop",
-                        "trigger": "NODE", 
-                        "metadata": {
-                            "wait_for": 2.0
-                        }
-                    }
-                }
+                "id": 100
             },
             "type": "Feature"
         },
