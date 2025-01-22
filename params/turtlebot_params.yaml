@@ -362,8 +362,6 @@ route_server:
     TriggerEvent:
       plugin: "nav2_route::TriggerEvent"
       service_name: "entrance_reached"
-    # AdjustSpeedLimit: "AdjustSpeedLimit", 
-    #   plugin: "nav2_route::AdjustSpeedLimit"
 
     CollisionMonitor:
       plugin: "nav2_route::CollisionMonitor"
