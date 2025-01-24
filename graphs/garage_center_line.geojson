@@ -67,7 +67,16 @@
                 "type": "Point"
             },
             "properties": {
-                "id": 4
+                "id": 4,
+                "operations": { 
+                    "trigger_event": { 
+                        "type": "TriggerEvent", 
+                        "trigger": "NODE", 
+                        "metadata": { 
+                            "service_name": "entrance_reached" 
+                        }
+                    }
+                }
             },
             "type": "Feature"
         },

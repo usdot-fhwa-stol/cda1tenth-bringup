@@ -354,13 +354,14 @@ route_server:
     boundary_radius_to_achieve_node: 1.0
     radius_to_achieve_node: 2.0
     edge_cost_functions: ["DistanceScorer", "CostmapScorer"]
-    operations: ["AdjustSpeedLimit", "ReroutingService", "CollisionMonitor"]
+    operations: ["TriggerEvent", "ReroutingService", "CollisionMonitor"]
 
     ReroutingService:
       plugin: "nav2_route::ReroutingService"
 
-    AdjustSpeedLimit:
-      plugin: "nav2_route::AdjustSpeedLimit"
+    TriggerEvent:
+      plugin: "nav2_route::TriggerEvent"
+      service_name: "entrance_reached"
 
     CollisionMonitor:
       plugin: "nav2_route::CollisionMonitor"

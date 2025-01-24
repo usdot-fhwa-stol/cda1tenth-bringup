@@ -156,7 +156,16 @@
             },
             "properties": {
                 "frame": "map",
-                "id": 13
+                "id": 13,
+                "operations": { 
+                    "trigger_event": { 
+                        "type": "TriggerEvent", 
+                        "trigger": "NODE", 
+                        "metadata": { 
+                            "service_name": "entrance_reached" 
+                        }
+                    }
+                }
             },
             "type": "Feature"
         },
