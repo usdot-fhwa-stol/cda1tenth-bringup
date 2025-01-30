@@ -5,4 +5,4 @@ ros2 topic pub --once /incoming_mobility_operation carma_v2x_msgs/msg/MobilityOp
   plan_id: ''
   timestamp: 0
 strategy: 'carma/port_drayage'
-strategy_params: '{\"cmv_id\":\"RED-TRUCK\",\"operation\":\"ENTER_PORT\",\"cargo\":false,\"cargo_id\":\"SOME_CARGO\",\"destination\":{\"longitude\":\"0.55\",\"latitude\":\"-2.45\"},\"action_id\":\"SOMEUID\"}'"
+strategy_params: '{\"cmv_id\":\"RED-TRUCK\",\"operation\":\"ENTER_PORT\",\"cargo\":false,\"cargo_id\":\"SOME_CARGO\",\"destination\":{\"longitude\":\"0.55\",\"latitude\":\"-2.45\"},\"action_id\":\"\"}'"
