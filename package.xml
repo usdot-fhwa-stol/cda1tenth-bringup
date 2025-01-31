@@ -18,9 +18,11 @@
   <depend>teleop_twist_joy</depend>
   <depend>dsrc_driver</depend>
   <depend>cpp_message</depend>
+  <depend>j2735_convertor</depend>
   <depend>nav2_port_drayage_demo</depend>
   <depend>nav2_route_server_behavior_tree</depend>
   <depend>nav2_emergency_stop</depend>
+  <depend>nav2_bsm_generator</depend>
 
   <export>
     <build_type>ament_cmake</build_type>

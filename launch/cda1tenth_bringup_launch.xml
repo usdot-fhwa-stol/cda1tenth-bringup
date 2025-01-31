@@ -25,6 +25,8 @@
   </include>
   <include file="$(find-pkg-share dsrc_driver)/launch/dsrc_driver.py"/>
   <include file="$(find-pkg-share cda1tenth_bringup)/launch/cpp_message_launch.xml"/>
+  <include file="$(find-pkg-share nav2_bsm_generator)/launch/nav2_bsm_generator_launch.py"/>
+  <include file="$(find-pkg-share j2735_convertor)/launch/j2735_convertor_launch.py"/>
 
   <!--Record ROS2 bag if record_bag:=true-->
   <include file="$(find-pkg-share cda1tenth_bringup)/launch/ros2_rosbag.launch.py" if="$(var record_bag)">
@@ -37,7 +39,7 @@
     <param name="bond_timeout" value="0.0"/>
     <param
       name="node_names"
-      value="cpp_message_node, dsrc_driver_node"
+      value="cpp_message_node, dsrc_driver_node, nav2_bsm_generator_node, j2735_convertor_node"
       value-sep=", "/>
   </node>
 </launch>
