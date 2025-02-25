@@ -16,7 +16,7 @@
   <depend>nav2_route</depend>
   <depend>tf2_ros</depend>
   <depend>teleop_twist_joy</depend>
-  <depend>dsrc_driver</depend>
+  <depend>v2x_ros_driver</depend>
   <depend>cpp_message</depend>
   <depend>j2735_convertor</depend>
   <depend>nav2_port_drayage_demo</depend>
