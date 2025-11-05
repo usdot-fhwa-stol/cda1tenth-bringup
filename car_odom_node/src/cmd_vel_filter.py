@@ -28,11 +28,11 @@ class CmdVelFilter(Node):
         self.get_logger().info("CmdVelFilter running at constant 20 Hz")
 
     def cmd_vel_callback(self, msg: Twist):
-        """Callback for incoming /cmd_vel messages."""
+        """Process incoming /cmd_vel messages."""
         self.latest_cmd = msg
 
     def publish_loop(self):
-        """Publishes latest command or zero if nothing received."""
+        """Publish latest command or zero if nothing received."""
         msg = Twist()
         if self.latest_cmd is not None:
             msg.linear.x = self.latest_cmd.linear.x

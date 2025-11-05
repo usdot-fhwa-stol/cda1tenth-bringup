@@ -2,17 +2,13 @@
 
 import rclpy
 from rclpy.node import Node
-from rclpy.parameter import Parameter
 from rcl_interfaces.msg import SetParametersResult
 from car_state_msg.msg import CarState
 from nav_msgs.msg import Odometry
-from geometry_msgs.msg import Twist, TransformStamped, Pose
+from geometry_msgs.msg import Twist, TransformStamped
 from car_config_msg.msg import CarConfig
 from tf2_ros import TransformBroadcaster
-import tf2_ros
-import tf2_geometry_msgs
 import math
-import numpy as np
 from rclpy.qos import QoSProfile, ReliabilityPolicy, DurabilityPolicy
 
 
@@ -121,7 +117,7 @@ class CarOdometryNode(Node):
         self.get_logger().info(f"Max RPM: {self.max_rpm:.1f}")
 
     def parameter_change_callback(self, params):
-        """Handle parameter changes at runtime"""
+        """Handle parameter changes at runtime."""
         for param in params:
             param_name = param.name
             param_value = param.value
@@ -350,7 +346,7 @@ class CarOdometryNode(Node):
         self.tf_broadcaster.sendTransform(transform)
 
     def publish_car_config(self):
-        """Publish car configuration at 1 Hz based on parameters"""
+        """Publish car configuration at 1 Hz based on parameters."""
         config_msg = CarConfig()
 
         # Physical parameters
