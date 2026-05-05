@@ -1,0 +1,18 @@
+services:
+  cda1tenth:
+    build: .
+    network_mode: host
+    ipc: host
+    privileged: true
+    environment:
+      - DISPLAY=${DISPLAY}
+      - ROS_DOMAIN_ID=${ROS_DOMAIN_ID:-0}
+      - QT_X11_NO_MITSHM=1
+      - TURTLEBOT3_MODEL=waffle
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - ~/cda_bags:/root/cda_bags
+    command: >
+      ros2 launch cda1tenth_bringup cda1tenth_bringup_launch.xml
+        vehicle:=${VEHICLE:-turtlebot}
+        record_bag:=${RECORD_BAG:-false}
