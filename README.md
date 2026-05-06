@@ -4,7 +4,7 @@
 
 Cooperative Driving Automation (CDA) is research focused on how automated vehicles can communicate with each other and infrastructure to improve safety and traffic flow. The 1Tenth project scales this technology down to miniature robotic vehicles - built ontop of the [CARMA platform](https://github.com/usdot-fhwa-stol/carma-platform/tree/develop).
 
-This Bringup repository is the starting point for operating the vehicle. Because our vehicles are built from many different software and hardware pieces, this repository contains the launch scripts and configuration files needed to start all those systems together so the vehicle can drive.
+This repository is the starting point for operating an autonomous vehicle. It contains the launch scripts and configuration files needed to start all the different software and hardware pieces together so the vehicle can drive.
 
 Whether you are working with a [physical robotic vehicle](https://github.com/usdot-fhwa-stol/cda1tenth-hardware) (Go to [Physical](#physical-robot)) in the lab or running a simulated vehicle on your computer (Go to [Simulated](#simulated-robot)), this guide will help you get started.
 
