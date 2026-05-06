@@ -142,7 +142,7 @@ For more information, see the [F1TENTH Firmware Documentation](https://f1tenth.
 1. To ensure your terminal always recognizes the CDA 1Tenth software, run this command to update your system profile:
 
 ```bash
-echo 'source /home/$USER/cda_ws/install/setup.bash' >> ~/.bashrc
+echo 'source /home/$USER/cda_ws/src/install/setup.bash' >> ~/.bashrc
 ```
 
 --------------------------------------------------------------------------
