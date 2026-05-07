@@ -5,21 +5,13 @@ FROM osrf/ros:humble-desktop
 RUN apt-get update && apt-get install -y \
     ros-humble-gazebo-ros-pkgs \
     ros-humble-rviz2 \
-    ros-humble-slam-toolbox \
     ros-humble-navigation2 \
     ros-humble-nav2-bringup \
-    ros-humble-behaviortree-cpp-v3 \
     ros-humble-ackermann-msgs \
-    ros-humble-joy \
-    ros-humble-xacro \
     ros-humble-robot-state-publisher \
     ros-humble-turtlebot3-gazebo \
     libnanoflann-dev \
-    nlohmann-json3-dev \
-    libmosquitto1 \
-    libmosquitto-dev \
-    liblttng-ust-dev \
-    && rm -rf /var/lib/apt/lists/*
+    nlohmann-json3-dev
 
 COPY --from=nav2 /opt/underlay_ws /opt/underlay_ws
 COPY --from=nav2 /opt/overlay_ws /opt/overlay_ws
