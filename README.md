@@ -28,7 +28,7 @@ Ensure your `docker-compose.yaml`, `Dockerfile`, and `entrypoint.sh` are placed 
 
 ```bash
 cd ~/cda_ws/src/cda1tenth-bringup
-mv Dockerfile docker-compose.yml entrypoint.sh ..
+mv Dockerfile docker-compose.yml entrypoint.sh ../..
 ```
 
 ### 2. Build and Launch
@@ -58,8 +58,6 @@ docker compose up
 #### B. Send Port Drayage Mobility Operation
 
 Open a separate terminal to send a simulated V2X mobility message to the vehicle.
-
-*Note: We changed `RED-TRUCK` to `turtlebot` in the command below so it matches the `cmv_id` defined in your turtlebot params file.*
 
 Enter the container and source the environment:
 
