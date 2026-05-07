@@ -24,7 +24,12 @@ cd ~/cda_ws/src
 git clone https://github.com/usdot-fhwa-stol/cda1tenth-bringup.git
 ```
 
-Ensure your `docker-compose.yaml`, `Dockerfile`, and `entrypoint.sh` are placed in the root of the workspace (`~/cda_ws/`).
+Ensure your `docker-compose.yaml`, `Dockerfile`, and `entrypoint.sh` are placed in the root of the workspace (`~/cda_ws/`). They will be cloned under the cda1tenth-bringup folder, so do this command.
+
+```bash
+cd ~/cda_ws/src/cda1tenth-bringup
+mv Dockerfile docker-compose.yml entrypoint.sh ..
+```
 
 ### 2. Build and Launch
 
