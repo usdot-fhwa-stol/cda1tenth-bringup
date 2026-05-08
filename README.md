@@ -2,17 +2,19 @@
 
 ## Introduction
 
-Cooperative Driving Automation (CDA) is research focused on how automated vehicles can communicate with each other and infrastructure to improve safety and traffic flow. The 1Tenth project scales this technology down to miniature robotic vehicles - built ontop of the [CARMA platform](https://github.com/usdot-fhwa-stol/carma-platform/tree/develop).
+Cooperative driving automation (CDA) supports and enables communication between vehicles
+with driving automation features, other road users, and transportation infrastructure. Once
+deployed, CDA has the potential to improve transportation efciency, facilitate freight
+movement, increase productivity, and save billions by reducing the need to increase roadway
+facilities
 
-This repository is the starting point for operating an autonomous vehicle. It contains the launch scripts and configuration files needed to start all the different software and hardware pieces together so the vehicle can drive.
-
-Whether you are working with a [physical robotic vehicle](https://github.com/usdot-fhwa-stol/cda1tenth-hardware) (Go to [Physical](#physical-robot)) in the lab or running a simulated vehicle on your computer (Go to [Simulated](#simulated-robot)), this guide will help you get started.
+CDA 1Tenth is an open source platform for testing CDA capabilities without life size vehicles. Whether you are working with a small [physical robotic vehicle](https://github.com/usdot-fhwa-stol/cda1tenth-hardware) (Go to [Physical](#physical-robot)) in a garage or running a simulated vehicle on your computer (Go to [Simulated](#simulated-robot)), this guide will help you get started.
 
 If you are new to this project and some of the technologies, check out the [key terms section](#key-terms)
 
 ## Simulated Robot
 
-This guide details the steps to set up, configure, and launch the CDA1Tenth simulated environment using Docker. This code has been tested on WSL2, Ubuntu 22.04 LTS Desktop, and VM.
+This guide details the steps to set up, configure, and launch the CDA 1Tenth simulated environment using Docker. This code has been tested on WSL2, Ubuntu 22.04 LTS Desktop, and VM.
 
 ### Pre-reqs
 - Docker
@@ -21,7 +23,7 @@ This guide details the steps to set up, configure, and launch the CDA1Tenth simu
 
 ### 1. Workspace Setup
 
-Create a new workspace, source directory, and clone the `cda1tenth-bringup` repository:
+Create a new workspace, source directory, and clone the `cda-bringup` repository:
 
 ```bash
 mkdir -p ~/cda_ws/src
@@ -193,11 +195,10 @@ To safely turn off the vehicle software, go to the terminal where you launched t
 ### Key Terms
 
 - **Bringup:** The process of launching and connecting all the software required to make the robot operate.
-- **Port Drayage:** The transport of goods over a short distance, typically moving shipping containers between a port and a nearby logistical facility.
 - **[ROS 2](https://github.com/ros2):** Robot Operating System. The underlying framework that allows all the different parts of the vehicle to communicate.
-- **[RViz](https://github.com/ros-visualization/rviz):** A 3D visualizer for the Robot Operating System (ROS) framework It lets you see what the robot is seeing and lets you send commands to the robot.
-- **[Gazebo](https://github.com/gazebosim):** A popular simulator with lots of tools and support.
-- **Nav2:** Some extensions to the [navigation2](https://github.com/usdot-fhwa-stol/navigation2/tree/nav2_route_server) package (which is for routing and path planning).
+- **[RViz](https://github.com/ros-visualization/rviz):** A visualizer and interface for the ROS framework.
+- **[Gazebo](https://github.com/gazebosim):** An open-source, 3D robotics simulator.
+- **Navigation2 (Nav2):** A navigation stack for mobile robots built on the ROS framework [Nav2 Github](https://github.com/ros-navigation/navigation2).
 - **.xml:** In ROS 2, these files are used as launch scripts to define exactly which software nodes to start and how they should connect.
 - **.yaml:** A format used for configuration files. These files store settings and parameters in a clean layout that is easy to read and edit.
 - **.pgm:** Portable Graymap Format. A simple image file used by the navigation system to store a 2D grid map of the physical environment.
