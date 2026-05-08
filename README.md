@@ -37,7 +37,7 @@ Navigate back to your workspace root and build the Docker image:
 
 ```bash
 cd ~/cda_ws
-docker compose build --no-cache
+docker compose build
 ```
 
 Once built, start the simulation:
