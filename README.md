@@ -48,6 +48,13 @@ docker compose up
 
 *Note: RViz and Gazebo may take a moment to launch and load the maps.*
 
+If rviz is not launching/crashing/not displaying properly try these commands to increase docker permissions.
+
+```bash
+export LIBGL_ALWAYS_SOFTWARE=1
+xhost +local:docker
+```
+
 ### 3. Initialization and Operation
 
 #### A. Set Initial Pose
