@@ -12,7 +12,12 @@ If you are new to this project and some of the technologies, check out the [key 
 
 ## Simulated Robot
 
-This guide details the steps to set up, configure, and launch the CDA1Tenth simulated environment using Docker.
+This guide details the steps to set up, configure, and launch the CDA1Tenth simulated environment using Docker. This code has been tested on WSL2, Ubuntu 22.04 LTS Desktop, and VM.
+
+### Pre-reqs
+- Docker
+- Nvidia Container Toolkit (On Ubuntu Desktop)
+- Git
 
 ### 1. Workspace Setup
 
