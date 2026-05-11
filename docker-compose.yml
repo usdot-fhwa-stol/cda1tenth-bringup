@@ -9,18 +9,9 @@ services:
       - ROS_DOMAIN_ID=${ROS_DOMAIN_ID:-0}
       - QT_X11_NO_MITSHM=1
       - TURTLEBOT3_MODEL=waffle
-      - NVIDIA_VISIBLE_DEVICES=all
-      - NVIDIA_DRIVER_CAPABILITIES=all
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - ~/cda_bags:/root/cda_bags
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: all
-              capabilities: [gpu]
     command: >
       ros2 launch cda1tenth_bringup cda1tenth_bringup_launch.xml
         vehicle:=${VEHICLE:-turtlebot}
