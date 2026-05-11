@@ -35,22 +35,29 @@ Ensure your `docker-compose.yaml`, `Dockerfile`, and `entrypoint.sh` are placed 
 
 ```bash
 cd ~/cda_ws/src/cda1tenth-bringup
-mv Dockerfile docker-compose.yml entrypoint.sh ../..
+mv Dockerfile docker-compose.yml docker-compose.nvidia.yml entrypoint.sh launch.sh ../..
 ```
 
 ### 2. Build and Launch
 
-Navigate back to your workspace root and build the Docker image:
+launch.sh will handle building and launching for you. First create the executable.
 
 ```bash
-cd ~/cda_ws
-docker compose build
+chmod +x launch.sh
 ```
 
-Once built, start the simulation:
+You'll have different options based on your environment.
 
 ```bash
-docker compose up
+# This should auto-detect your env settings
+./launch.sh
+
+# But you can manually change the gpu mode
+./launch.sh --gpu
+./launch.sh --no-gpu
+
+# And to change launch params, Ex:
+VEHICLE=tortoisebot RECORD_BAG=true ./launch.sh
 ```
 
 *Note: RViz and Gazebo may take a moment to launch and load the maps.*
@@ -115,7 +122,7 @@ Create the following three rules files in `/etc/udev/rules.d/`:
 As root, create `/etc/udev/rules.d/rplidar.rules` and paste in the rule for the lidar on a single line:
 
 ```bash
-KERNEL=="ttyACM[0-9]*", ACTION=="add", ATTRS{idVendor}=="15d1", MODE="0666", GROUP="dialout", SYMLINK+="sensors/hokuyo"
+KERNEL=="ttyACM[0-9]*", ACTION=="add", ATTRS{idVendor}=="15d1", MODE="0666", GROUP="dialout", SYMLINK+="sensors/rplidar"
 ```
 
 Next, create `/etc/udev/rules.d/99-vesc6.rules` and paste in the rule for the VESC:
