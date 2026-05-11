@@ -208,7 +208,6 @@ To safely turn off the vehicle software, go to the terminal where you launched t
 - **.yaml:** A format used for configuration files. These files store settings and parameters in a clean layout that is easy to read and edit.
 - **.pgm:** Portable Graymap Format. A simple image file used by the navigation system to store a 2D grid map of the physical environment.
 - **.urdf:** Unified Robot Description Format. A file that describes the physical dimensions, joints, and visual appearance of the robot so the software knows how the vehicle is structured and how it moves.
-- **.rules:** Linux configuration files. They tell the computer operating system how to handle specific hardware devices like sensors or controllers when they are plugged in, ensuring the software has the correct permissions to use them.
 
 ## Contribution
 
