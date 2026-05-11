@@ -159,8 +159,6 @@ sudo udevadm info --name=<your_device_name> --attribute-walk
 
 Replace `<your_device_name>` with the device assigned by the OS, such as `ttyACM0`.
 
-For more information, see the [F1TENTH Firmware Documentation](https://f1tenth.readthedocs.io/en/foxy_test/getting_started/firmware/drive_workspace.html#udev-rules-setup).
-
 -------------------------------------------------
 
 1. To ensure your terminal always recognizes the CDA 1Tenth software, run this command to update your system profile:
