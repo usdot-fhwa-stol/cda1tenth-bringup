@@ -38,7 +38,7 @@ cd ~/cda_ws/src/cda1tenth-bringup
 mv Dockerfile docker-compose.yml docker-compose.nvidia.yml entrypoint.sh launch.sh ../..
 ```
 
-### 2. Build and Launch
+### 2. Launching the System
 
 launch.sh will handle building and launching for you. First create the executable.
 
@@ -56,20 +56,13 @@ You'll have different options based on your environment.
 ./launch.sh --gpu
 ./launch.sh --no-gpu
 
-# And to change launch params, Ex:
-VEHICLE=tortoisebot RECORD_BAG=true ./launch.sh
+# You can also choose to rebuild the whole container
+./launch.sh --rebuild
 ```
 
 *Note: RViz and Gazebo may take a moment to launch and load the maps.*
 
-If rviz is not launching/crashing/not displaying properly try these commands to increase docker permissions.
-
-```bash
-export LIBGL_ALWAYS_SOFTWARE=1
-xhost +local:docker
-```
-
-### 3. Initialization and Operation
+### 3. Post Launch Steps
 
 #### A. Set Initial Pose
 
@@ -84,7 +77,6 @@ Enter the container and source the environment:
 
 ```bash
 docker exec -it cda_ws-cda1tenth-1 bash
-source /opt/bringup_ws/install/setup.bash
 ```
 
 Send the operation message:
@@ -95,11 +87,11 @@ ros2 topic pub --once /incoming_mobility_operation carma_v2x_msgs/msg/MobilityOp
 
 #### Shutdown
 
-To shut down the system, use `CTRL + C` on the `cda1tenth_bringup` and `rviz2` terminals. Run `ros2 node list` to verify all nodes are shut down before relaunching the system.
+To gracefully stop the container perform `CTRL + C` on the container terminal. To force stop it, hit `CTRL + C` twice.
 
 ## Physical Robot
 
-## Prerequisites and Setup
+### Prerequisites and Setup
 
 Before you can start the vehicle, your computer environment needs to be prepared.
 
@@ -107,7 +99,7 @@ Before you can start the vehicle, your computer environment needs to be prepared
 
 ----------------------------------------------------
 
-1. **udev** Rules Setup
+#### **udev** Rules Setup
 
 If you are using a physical vehicle, you must install three `udev` rules so your computer can consistently identify and communicate with the VESC, lidar, and joypad.
 
@@ -184,9 +176,9 @@ ros2 launch cda1tenth_bringup cda1tenth_bringup_launch.xml vehicle:=[red_truck, 
 - **vehicle:** Choose one option from the brackets. If you are using a physical car, choose `red_truck` or `blue_truck`. If you want to run a virtual test on your computer without hardware, choose `turtlebot`.
 - **record_bag:** Choose `true` if you want to record the vehicle data for later review, or `false` to ignore. Records are saved in a folder named cda_bags.
 
-## Post Launch Steps
+### Post Launch Steps
 
-If you are using a physical vehicle, you will use the RViz visualizer to provide the initial location and destination.
+You will use the RViz visualizer to provide the initial location and destination.
 
 1. On an external computer connected to the same network as the vehicle, open a new terminal and type `rviz2`.
 2. In the RViz program, go to File then Open Config and select the configuration file located in the rviz directory of this repository.
@@ -195,15 +187,15 @@ If you are using a physical vehicle, you will use the RViz visualizer to provide
 
 ### Shutting Down
 
-To safely turn off the vehicle software, go to the terminal where you launched the system and press CTRL and C. You can type `ros2 node list` in the terminal to verify that all systems have shut down completely.
+To safely turn off the vehicle software, go to the terminal where you launched the system and press `CTRL + C`.
 
-### Key Terms
+## Key Terms
 
 - **Bringup:** The process of launching and connecting all the software required to make the robot operate.
 - **[ROS 2](https://github.com/ros2):** Robot Operating System. The underlying framework that allows all the different parts of the vehicle to communicate.
 - **[RViz](https://github.com/ros-visualization/rviz):** A visualizer and interface for the ROS framework.
 - **[Gazebo](https://github.com/gazebosim):** An open-source, 3D robotics simulator.
-- **Navigation2 (Nav2):** A navigation stack for mobile robots built on the ROS framework [Nav2 Github](https://github.com/ros-navigation/navigation2).
+- **Navigation2 (Nav2):** A navigation stack for mobile robots built on the ROS framework, [Nav2 Github](https://github.com/ros-navigation/navigation2).
 - **.xml:** In ROS 2, these files are used as launch scripts to define exactly which software nodes to start and how they should connect.
 - **.yaml:** A format used for configuration files. These files store settings and parameters in a clean layout that is easy to read and edit.
 - **.pgm:** Portable Graymap Format. A simple image file used by the navigation system to store a 2D grid map of the physical environment.
