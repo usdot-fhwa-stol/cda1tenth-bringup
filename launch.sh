@@ -15,22 +15,20 @@ detect_wsl() {
 }
 
 GPU_MODE=""
+REBUILD=false
+
 while [[ $# -gt 0 ]]; do
     case "$1" in
-        --gpu)    GPU_MODE="nvidia"; shift ;;
-        --no-gpu) GPU_MODE="none";   shift ;;
+        --gpu)     GPU_MODE="nvidia"; shift ;;
+        --no-gpu)  GPU_MODE="none";   shift ;;
+        --rebuild) REBUILD=true;      shift ;;
         --help|-h)
             echo "Usage: ./launch.sh [OPTIONS]"
             echo ""
             echo "Options:"
             echo "  --gpu       Force NVIDIA GPU mode"
             echo "  --no-gpu    Force non-GPU mode"
-            echo "  (default)   Auto-detect environment"
-            echo ""
-            echo "Environment variables:"
-            echo "  VEHICLE       turtlebot (default) or other"
-            echo "  RECORD_BAG    true/false (default: false)"
-            echo "  ROS_DOMAIN_ID ROS 2 domain (default: 0)"
+            echo "  --rebuild   Rebuild docker images before launching"
             exit 0
             ;;
         *)
@@ -48,17 +46,24 @@ if [[ -z "$GPU_MODE" ]]; then
         echo "[launch] Detected NVIDIA GPU + runtime — using GPU mode"
         GPU_MODE="nvidia"
     else
-        echo "[launch] No NVIDIA GPU detected — using non-GPU mode"
+        echo "[launch] No NVIDIA GPU or Docker Toolkit detected — using non-GPU mode"
         GPU_MODE="none"
     fi
 fi
 
-xhost +local:docker 2>/dev/null || true
+xhost +local:docker > /dev/null
 
 COMPOSE_FILES="-f docker-compose.yml"
 if [[ "$GPU_MODE" == "nvidia" ]]; then
-    COMPOSE_FILES="$COMPOSE_FILES -f docker-compose.nvidia.yml"
+    export LIBGL_ALWAYS_SOFTWARE=0
+   COMPOSE_FILES="$COMPOSE_FILES -f docker-compose.nvidia.yml"
 fi
 
-echo "[launch] Starting with: docker compose $COMPOSE_FILES up"
-docker compose $COMPOSE_FILES up --build
+if [ "$REBUILD" = true ]; then
+    echo "[launch] Rebuilding images..."
+    docker compose $COMPOSE_FILES build
+fi
+
+echo "[launch] Executing: docker compose $COMPOSE_FILES up"
+
+exec docker compose $COMPOSE_FILES up
