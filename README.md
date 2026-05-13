@@ -62,6 +62,12 @@ You'll have different options based on your environment.
 
 *Note: RViz and Gazebo may take a moment to launch and load the maps.*
 
+If you having graphical issues in rviz and gazebo, try this:
+
+```bash
+export LIBGL_ALWAYS_SOFTWARE=1
+```
+
 ### 3. Post Launch Steps
 
 #### A. Set Initial Pose
@@ -85,7 +91,7 @@ Send the operation message:
 ros2 topic pub --once /incoming_mobility_operation carma_v2x_msgs/msg/MobilityOperation "{m_header: {sender_id: '', recipient_id: '', sender_bsm_id: '', plan_id: '', timestamp: 0}, strategy: 'carma/port_drayage', strategy_params: '{\"cmv_id\":\"turtlebot\",\"operation\":\"ENTER_PORT\",\"cargo\":false,\"cargo_id\":\"SOME_CARGO\",\"destination\":{\"longitude\":\"-1.6\",\"latitude\":\"-0.2\"},\"action_id\":\"\"}'}"
 ```
 
-#### Shutdown
+### Shutting Down
 
 To gracefully stop the container perform `CTRL + C` on the container terminal. To force stop it, hit `CTRL + C` twice.
 
