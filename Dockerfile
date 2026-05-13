@@ -42,6 +42,8 @@ RUN sed -i 's|/home/.*/cda1tenth-bringup|/opt/bringup_ws/src/cda1tenth-bringup|g
     /opt/bringup_ws/src/cda1tenth-bringup/params/turtlebot_params.yaml && \
     sed -i 's|maps/garage.yaml|maps/turtlebot_sim.yaml|g' \
     /opt/bringup_ws/src/cda1tenth-bringup/launch/localization_launch.xml
+    
+RUN sed -i '/ros1_msgs_ws/d' /home/carma/.base-image/workspace/install/setup.bash
 
 RUN /bin/bash -c "\
     source /opt/ros/humble/setup.bash && \
