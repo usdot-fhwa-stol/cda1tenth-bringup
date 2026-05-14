@@ -33,7 +33,7 @@ COPY --from=v2x_ros_conv /opt/carma /opt/carma
 RUN mkdir -p /opt/carma/vehicle/config && \
     echo "{}" > /opt/carma/vehicle/config/GlobalParamsOverride.yaml
 
-COPY . /opt/bringup_ws/
+COPY . /opt/bringup_ws/src/cda1tenth-bringup/
 WORKDIR /opt/bringup_ws
 RUN sed -i 's|<depend>cpp_message</depend>|<exec_depend>cpp_message</exec_depend>|g' /opt/bringup_ws/src/cda1tenth-bringup/package.xml && \
     sed -i 's|<depend>v2x_ros_driver</depend>|<exec_depend>v2x_ros_driver</exec_depend>|g' /opt/bringup_ws/src/cda1tenth-bringup/package.xml && \

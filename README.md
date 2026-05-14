@@ -31,25 +31,16 @@ cd ~/cda_ws/src
 git clone https://github.com/usdot-fhwa-stol/cda1tenth-bringup.git
 ```
 
-Ensure your `docker-compose.yaml`, `Dockerfile`, and `entrypoint.sh` are placed in the root of the workspace (`~/cda_ws/`). They will be cloned under the cda1tenth-bringup folder, so do this command.
-
-```bash
-cd ~/cda_ws/src/cda1tenth-bringup
-mv Dockerfile docker-compose.yml docker-compose.nvidia.yml entrypoint.sh launch.sh ../..
-```
-
 ### 2. Launching the System
 
-launch.sh will handle building and launching for you. First create the executable.
-
-```bash
-chmod +x launch.sh
-```
+launch.sh will handle building and launching for you.
 
 You'll have different options based on your environment.
 
 ```bash
-# This should auto-detect your env settings
+# launch.sh should auto-detect your env settings
+cd cda1tenth-bringup
+
 ./launch.sh
 
 # But you can manually change the gpu mode
@@ -82,7 +73,7 @@ Open a separate terminal to send a simulated V2X mobility message to the vehicle
 Enter the container and source the environment:
 
 ```bash
-docker exec -it cda_ws-cda1tenth-1 bash
+docker exec -it cda1tenth-bringup bash
 ```
 
 Send the operation message:

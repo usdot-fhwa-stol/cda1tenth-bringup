@@ -1,5 +1,7 @@
 services:
-  cda1tenth:
+  bringup:
+    image: cda1tenth-bringup:latest
+    container_name: cda1tenth-bringup
     build: .
     network_mode: host
     ipc: host
