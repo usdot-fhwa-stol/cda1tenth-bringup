@@ -1,0 +1,15 @@
+.git
+.gitignore
+.github/
+build/
+install/
+log/
+README.md
+.devcontainer/
+docs/
+.sonarqube/
+sonar-project.properties
+Doxyfile
+LISCENSE
+codecov.yml
+.circleci/
