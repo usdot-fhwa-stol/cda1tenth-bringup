@@ -8,9 +8,9 @@ deployed, CDA has the potential to improve transportation efciency, facilitate f
 movement, increase productivity, and save billions by reducing the need to increase roadway
 facilities
 
-CDA 1Tenth is an open source platform for testing CDA capabilities without life size vehicles. Whether you are working with a small [physical robotic vehicle](https://github.com/usdot-fhwa-stol/cda1tenth-hardware) (Go to [Physical](#physical-robot)) in a garage or running a simulated vehicle on your computer (Go to [Simulated](#simulated-robot)), this guide will help you get started.
+CDA 1Tenth is an open source platform for testing CDA capabilities without life size vehicles. Whether you are working with a small [physical vehicle](https://github.com/usdot-fhwa-stol/cda1tenth-hardware) (Go to [Physical](#physical-robot)) in a garage or running a simulated vehicle on your computer (Go to [Simulated](#simulated-robot)), this guide will help you get started.
 
-If you are new to this project and some of the technologies, check out the [key terms section](#key-terms)
+If you are new to this project and some of the technologies, check out the [Key Terms section](#key-terms).
 
 ## Simulated Robot
 
