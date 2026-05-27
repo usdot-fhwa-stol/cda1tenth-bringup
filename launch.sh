@@ -46,7 +46,7 @@ if [[ -z "$GPU_MODE" ]]; then
         echo "[launch] Detected NVIDIA GPU + runtime — using GPU mode"
         GPU_MODE="nvidia"
     else
-        echo "[launch] No NVIDIA GPU or Docker Toolkit detected — using non-GPU mode"
+        echo "[launch] No NVIDIA GPU or Container Toolkit detected — using non-GPU mode"
         GPU_MODE="none"
     fi
 fi
@@ -56,7 +56,7 @@ xhost +local:docker > /dev/null
 COMPOSE_FILES="-f docker-compose.yml"
 if [[ "$GPU_MODE" == "nvidia" ]]; then
     export LIBGL_ALWAYS_SOFTWARE=0
-   COMPOSE_FILES="$COMPOSE_FILES -f docker-compose.nvidia.yml"
+    COMPOSE_FILES="$COMPOSE_FILES -f docker-compose.nvidia.yml"
 fi
 
 if [ "$REBUILD" = true ]; then

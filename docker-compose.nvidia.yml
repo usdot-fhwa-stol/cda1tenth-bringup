@@ -1,5 +1,5 @@
 services:
-  cda1tenth:
+  bringup:
     environment:
       - NVIDIA_VISIBLE_DEVICES=all
       - NVIDIA_DRIVER_CAPABILITIES=all
